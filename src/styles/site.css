@@ -733,3 +733,6 @@ html.js [data-reveal].is-in { opacity: 1; translate: 0 0; }
 /* wordmark: one <symbol>, coloured per instance */
 .logo { color: #fff; }
 .logo--ftr { --logo-fill: url(#g-brand); }
+
+/* long URLs and addresses in carried-over legal text must wrap on phones */
+.prose { overflow-wrap: anywhere; }
