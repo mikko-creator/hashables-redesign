@@ -37,13 +37,22 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
-const LOGO_SVG = fs.readFileSync(path.join(ROOT, 'src/assets/img/brand/hashables-logo.svg'), 'utf8')
-  .replace(/<\?xml[^>]*>/, '').replace('<svg ', '<svg role="img" aria-label="Hashables" focusable="false" ');
-let logoN = 0;
+// The wordmark goes into the sprite ONCE as <symbol id="hsh-logo"> (it was 60 KB and printed four times per page).
+// Fills read var(--logo-fill, currentColor) so one symbol serves the white
+// header logo and the gradient footer logo; the class-based styles of the source file become attributes.
+const SRC_SVG = fs.readFileSync(path.join(ROOT, 'src/assets/img/brand/hashables-logo.svg'), 'utf8');
+const VIEWBOX = /viewBox="([^"]+)"/.exec(SRC_SVG)[1];
+const FILL = 'style="fill:var(--logo-fill,currentColor)"';
+const LOGO_SYMBOL = `<symbol id="hsh-logo" viewBox="${VIEWBOX}">` + SRC_SVG.replace(/^[\s\S]*?<g[^>]*>/, '').replace(/<\/g>\s*<\/svg>\s*$/, '')
+  // path data kept verbatim: Illustrator packs arc flags against the next number ("011.5"), so a number-rounding pass
+  // corrupts the glyphs (tried 2026-10-24: only "HA H" survived)
+  .replace(/<path class="cls-4" d="([^"]+)"/g, (m, d) => `<path ${FILL} d="${d}"`)
+  .replace('<text class="cls-3"', `<text font-family="Aldrich, sans-serif" font-size="43" ${FILL}`)
+  .replace(/class="cls-2"/g, 'letter-spacing=".22em"').replace(/class="cls-5"/g, 'letter-spacing=".11em"').replace(/class="cls-1"/g, 'letter-spacing=".21em"')
+  + '</symbol>';
+if (/class="cls-/.test(LOGO_SYMBOL)) throw new Error('logo symbol: an unmapped class is left in the source SVG');
 export function logo(cls = 'logo') {
-  // unique ids per inline copy (the SVG declares id="Layer_2" / "Layer_1-2")
-  logoN++;
-  return LOGO_SVG.replace(/id="([^"]+)"/g, (m, id) => `id="${id}-${logoN}"`).replace('<svg ', `<svg class="${cls}" `);
+  return `<svg class="${cls}" viewBox="${VIEWBOX}" role="img" aria-label="Hashables" focusable="false"><use href="#hsh-logo"></use></svg>`;
 }
 
 const thumb = (f) => `<a class="dr-flavor" href="${u(flavorUrl(f))}" style="--c:${f.color}">${cubes(f.slug, { cls: 'dr-flavor__img' })}<span>${esc(f.name)}${f.badge ? `<small>${esc(f.badge)}</small>` : ''}</span></a>`;
@@ -155,7 +164,7 @@ ${head}
 ${schema.map(jsonld).join('\n')}
 </head>
 <body class="${bodyClass}">
-${SPRITE}
+${SPRITE.replace('</defs></svg>', LOGO_SYMBOL + '</defs></svg>')}
 <a class="skip" href="#main">Skip to content</a>
 ${ageGate()}
 ${header()}

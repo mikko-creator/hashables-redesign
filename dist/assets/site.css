@@ -730,3 +730,6 @@ html.js [data-reveal].is-in { opacity: 1; translate: 0 0; }
 .dr-flavor { padding: 10px 14px 10px 10px; }
 .dr-flavor__img { width: 64px; }
 .dr-flavor span { font-size: .95rem; }
+/* wordmark: one <symbol>, coloured per instance */
+.logo { color: #fff; }
+.logo--ftr { --logo-fill: url(#g-brand); }
