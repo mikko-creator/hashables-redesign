@@ -1,0 +1,27 @@
+{
+  "tool": "tools/fal-gen.mjs",
+  "slot": "S-FROZEN",
+  "file": "assets/generated/s-frozen.jpg",
+  "iptcDigitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+  "provenance": "AI-generated (fal.ai). Illustrative only: never a photograph of Hashables (hashables.com) or Nova Farms, their farms, staff, customers, products or brands.",
+  "model": "fal-ai/flux-pro/v1.1-ultra",
+  "prompt": "freshly harvested whole cannabis flowers resting on a bed of crushed ice in a shallow stainless steel tray, delicate frost crystals forming on the green leaves and trichomes, cool blue-white light with a faint aqua cast, overhead three-quarter view, clean and clinical yet natural, sun-washed retro summer photograph, 1970s film look, warm highlights, gentle film grain, crisp focus, natural colour, no people, no hands, no faces, no text, no lettering, no labels, no logos, no signage, all surfaces blank and unmarked",
+  "input": {
+    "aspect_ratio": "16:9",
+    "output_format": "jpeg",
+    "safety_tolerance": "5"
+  },
+  "seed": 694611017,
+  "requestId": "01a169f1-b21d-7102-94dd-f7a81ec923ca",
+  "cutout": null,
+  "width": 2752,
+  "height": 1536,
+  "sha256": "9dfcda3b412fd3a32ebbfaff7d151768128c788df864ad0db6ca780c15d90644",
+  "raw": "tmp/img/raw/S-FROZEN.1792778820130.jpg",
+  "attempt": 1,
+  "generatedAt": "2026-10-23T18:07:02.384Z",
+  "review": {
+    "verdict": "PENDING",
+    "reason": null
+  }
+}

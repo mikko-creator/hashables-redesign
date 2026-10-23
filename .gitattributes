@@ -1,0 +1,17 @@
+# kept in the workspace, left out of the public export (git archive)
+audit/ export-ignore
+assets/source/ export-ignore
+docs/FACTS.md export-ignore
+docs/RESUME.md export-ignore
+tools/crawl.mjs export-ignore
+tools/harvest-assets.mjs export-ignore
+tools/text.mjs export-ignore
+src/assets/img/cut/*.png export-ignore
+*.webp binary
+*.jpg binary
+*.png binary
+*.mp4 binary
+*.webm binary
+*.woff2 binary
+tools/overlap-check.mjs export-ignore
+tools/banned-words.txt export-ignore

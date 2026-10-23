@@ -1,0 +1,27 @@
+{
+  "tool": "tools/fal-gen.mjs",
+  "slot": "F-WATERMELON-JOLT",
+  "file": "assets/generated/f-watermelon-jolt.jpg",
+  "iptcDigitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+  "provenance": "AI-generated (fal.ai). Illustrative only: never a photograph of Hashables (hashables.com) or Nova Farms, their farms, staff, customers, products or brands.",
+  "model": "fal-ai/flux-pro/v1.1-ultra",
+  "prompt": "thick wedges of fresh red watermelon with glistening water droplets arranged on a sun-faded striped beach towel in aqua, pink and cream bands laid on fine sand, hard summer sun casting crisp shadows, overhead three-quarter view, sun-washed retro summer photograph, 1970s film look, warm highlights, gentle film grain, crisp focus, natural colour, no people, no hands, no faces, no text, no lettering, no labels, no logos, no signage, all surfaces blank and unmarked",
+  "input": {
+    "aspect_ratio": "16:9",
+    "output_format": "jpeg",
+    "safety_tolerance": "5"
+  },
+  "seed": 1503383266,
+  "requestId": "01a169f1-e5d8-7ef3-bfae-433fe50ad8ae",
+  "cutout": null,
+  "width": 2752,
+  "height": 1536,
+  "sha256": "259b88ae7f99a85285560492e4797c4d1001816d367af7d6742410f81389e482",
+  "raw": "tmp/img/raw/F-WATERMELON-JOLT.1792778833331.jpg",
+  "attempt": 1,
+  "generatedAt": "2026-10-23T18:07:14.847Z",
+  "review": {
+    "verdict": "PENDING",
+    "reason": null
+  }
+}

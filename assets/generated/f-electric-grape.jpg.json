@@ -1,0 +1,27 @@
+{
+  "tool": "tools/fal-gen.mjs",
+  "slot": "F-ELECTRIC-GRAPE",
+  "file": "assets/generated/f-electric-grape.jpg",
+  "iptcDigitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+  "provenance": "AI-generated (fal.ai). Illustrative only: never a photograph of Hashables (hashables.com) or Nova Farms, their farms, staff, customers, products or brands.",
+  "model": "fal-ai/flux-pro/v1.1-ultra",
+  "prompt": "dewy bunches of dark purple concord grapes on a dark wet slate surface at the edge of a beach, a violet and magenta dusk sky over the sea behind with a thin fork of distant lightning on the horizon, cool rim light on the grapes, moody and electric, sun-washed retro summer photograph, 1970s film look, warm highlights, gentle film grain, crisp focus, natural colour, no people, no hands, no faces, no text, no lettering, no labels, no logos, no signage, all surfaces blank and unmarked",
+  "input": {
+    "aspect_ratio": "16:9",
+    "output_format": "jpeg",
+    "safety_tolerance": "5"
+  },
+  "seed": 935793197,
+  "requestId": "01a169f2-11a9-7d90-96da-102c78ff8fc6",
+  "cutout": null,
+  "width": 2752,
+  "height": 1536,
+  "sha256": "3cb17192ec7e0e38dfc682e419845d9f27581fad704043e1eea19169368067e4",
+  "raw": "tmp/img/raw/F-ELECTRIC-GRAPE.1792778842889.jpg",
+  "attempt": 1,
+  "generatedAt": "2026-10-23T18:07:24.663Z",
+  "review": {
+    "verdict": "PENDING",
+    "reason": null
+  }
+}

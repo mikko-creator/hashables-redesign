@@ -1,0 +1,27 @@
+{
+  "tool": "tools/fal-gen.mjs",
+  "slot": "S-HERO",
+  "file": "assets/generated/s-hero.jpg",
+  "iptcDigitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+  "provenance": "AI-generated (fal.ai). Illustrative only: never a photograph of Hashables (hashables.com) or Nova Farms, their farms, staff, customers, products or brands.",
+  "model": "fal-ai/flux-pro/v1.1-ultra",
+  "prompt": "wide tropical beach at sunset, an enormous soft glowing sun sitting low on the ocean horizon in the centre, the sky graded from hot magenta pink at the top through coral and tangerine to pale gold at the horizon, tall coconut palm silhouettes leaning in from the far left and far right edges, long gentle glassy waves rolling toward shore with pink and gold reflections, a thin sheet of wet sand in the foreground mirroring the sky, the middle of the frame open and calm, cinematic wide-angle composition, sun-washed retro summer photograph, 1970s film look, warm highlights, gentle film grain, crisp focus, natural colour, no people, no hands, no faces, no text, no lettering, no labels, no logos, no signage, all surfaces blank and unmarked",
+  "input": {
+    "aspect_ratio": "16:9",
+    "output_format": "jpeg",
+    "safety_tolerance": "5"
+  },
+  "seed": 730744102,
+  "requestId": "01a169f1-8812-7082-9f50-63587ba52c34",
+  "cutout": null,
+  "width": 2752,
+  "height": 1536,
+  "sha256": "ae8939f59f878b9118df1bee7601cd8e26fa500a8bc13bd125877297fab249f7",
+  "raw": "tmp/img/raw/S-HERO.1792778807688.jpg",
+  "attempt": 1,
+  "generatedAt": "2026-10-23T18:06:49.420Z",
+  "review": {
+    "verdict": "PENDING",
+    "reason": null
+  }
+}

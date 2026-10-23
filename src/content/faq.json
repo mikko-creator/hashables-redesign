@@ -1,0 +1,178 @@
+{
+  "faq": {
+    "intro": "Straight answers about New England's own fresh-pressed hash rosin gummies, from the live rosin and the flavors to finding a shop near you.",
+    "topics": [
+      {
+        "id": "hashables-101",
+        "label": "Hashables 101",
+        "items": [
+          {
+            "q": "What are Hashables gummies?",
+            "a": "<p>Hashables are New England's own fresh-pressed, solventless hash rosin gummies, made by Nova Farms. Instead of distillate, every gummy is dosed with solventless hash rosin, which makes Hashables full-spectrum edibles with a broad cannabinoid profile and a distinct flower flavor you can't get from distillate. Each flavor pairs that hash rosin with natural flavors, and the whole line is built around one easy-going, uplifting chill. Stacks on stacks of flavor that tastes like paradise. Meet the <a href=\"/live-rosin-gummies/\">full lineup</a>.</p>"
+          },
+          {
+            "q": "Who makes Hashables?",
+            "a": "<p>Hashables is a Nova Farms brand, made by a crew of award-winning hash makers, and that hash is the base of every Hashables gummy. Nova has been making Hashables for about seven or eight years, and it's one of the first live rosin gummies in the Northeast. It all starts with fresh frozen flower from Nova's own farms, pressed into solventless hash rosin. Get the whole story on the <a href=\"/our-story/\">Our Story</a> page.</p>"
+          },
+          {
+            "q": "What effect do Hashables gummies have?",
+            "a": "<p>Hashables are made for one effect: an easy-going, uplifting chill. It's a single-effect line, so we don't sort the flavors into indica, sativa and hybrid; you just pick the flavor you're craving. The full-spectrum hash rosin brings a broad cannabinoid profile for a well-balanced high. The one twist is <a href=\"/live-rosin-gummies/remberry/\">Remberry</a>, our sleep gummy, made for winding down at night. Everyone responds to edibles differently, so <a href=\"/blog/start-low-go-slow/\">start low and go slow</a>.</p>"
+          },
+          {
+            "q": "How much THC is in a Hashables gummy?",
+            "a": "<p>Potency is printed on the state label on every pack, so the pack in your hand is the place to check. That label is also where you'll find the batch information if you want the lab results behind it, and our <a href=\"/lab-results/\">Lab Results</a> page shows you how to get them. Whatever the number, the edible basics still apply: start low, go slow, and remember that edibles can take up to two hours or more to kick in.</p>"
+          },
+          {
+            "q": "What ingredients are in Hashables gummies?",
+            "a": "<p>Hashables are formulated with solventless hash rosin and natural flavors; check the label on your pack for the complete ingredient list. The hash rosin starts as fresh frozen flower from Nova's own farms, and it's what makes every gummy full-spectrum. Have an allergy or dietary question? Email <a href=\"mailto:info@hashables.com\">info@hashables.com</a> with the flavor before you try it. Looking for sugar-free? That's <a href=\"/live-rosin-gummies/blue-raspberry/\">Blue Raspberry</a>, one of our specialty flavors.</p>"
+          }
+        ]
+      },
+      {
+        "id": "live-rosin",
+        "label": "The Live Rosin",
+        "items": [
+          {
+            "q": "What is live rosin?",
+            "a": "<p>Live rosin is a solventless cannabis extract made from plants that are frozen fresh at harvest instead of dried and cured. Typically, the frozen plant material is separated into hash, then the hash is pressed with gentle heat and pressure until the rosin flows, with no chemical solvents involved. Freezing fresh is about holding on to more of the plant's flavor and aroma. Hashables start with fresh frozen flower from Nova's own farms. Go deeper with our <a href=\"/blog/what-is-live-rosin/\">live rosin guide</a>.</p>"
+          },
+          {
+            "q": "What does fresh pressed mean?",
+            "a": "<p>Fresh pressed is how we describe the Hashables way: fresh frozen flower from Nova's own farms is made into hash, then pressed into solventless hash rosin, and that rosin is the base of every gummy. Using hash rosin instead of distillate is what gives Hashables their distinct flower flavor and their full-spectrum, broad cannabinoid profile. It's the difference you can taste in every flavor. Read more in <a href=\"/blog/fresh-pressed-explained/\">fresh pressed, explained</a>.</p>"
+          },
+          {
+            "q": "What does solventless mean?",
+            "a": "<p>Solventless means the cannabinoids and terpenes are separated from the plant without chemical solvents like butane or propane. Instead, solventless methods rely on things like ice water, sifting, heat and pressure. Hash rosin is a classic solventless extract: hash is pressed with heat and pressure, and the rosin that comes out is what Hashables gummies are dosed with. That's why we call them fresh-pressed, solventless hash gummies. Browse the <a href=\"/live-rosin-gummies/\">live rosin gummies</a>.</p>"
+          },
+          {
+            "q": "What's the difference between live rosin and distillate gummies?",
+            "a": "<p>Distillate gummies use a highly refined oil that's mostly THC, while live rosin gummies use a solventless extract that keeps more of the plant's character. Distillate is processed so heavily that much of the plant's natural flavor and aroma is lost along the way. Instead of distillate, Hashables are dosed with solventless hash rosin, so they're full-spectrum edibles with a broad cannabinoid profile and a distinct flower flavor distillate can't match. Curious how cannabinoids and terpenes work together? Read about <a href=\"/blog/beyond-thc-entourage-effect/\">the entourage effect</a>.</p>"
+          },
+          {
+            "q": "What's the difference between live rosin and live resin?",
+            "a": "<p>Both start with cannabis that's frozen fresh at harvest, but live resin is made with chemical solvents while live rosin is solventless. Live resin is usually extracted with hydrocarbons like butane or propane, which are purged out afterward. Live rosin skips the solvents: the fresh frozen material is typically turned into hash and pressed with heat and pressure. One letter apart, two very different methods. Hashables are made with solventless live hash rosin, made from fresh frozen flower off Nova's own farms.</p>"
+          }
+        ]
+      },
+      {
+        "id": "flavors",
+        "label": "Flavors",
+        "items": [
+          {
+            "q": "What flavors do Hashables come in?",
+            "a": "<p>Hashables come in core, specialty and limited-edition flavors, stacks on stacks of them:</p><ul><li><a href=\"/live-rosin-gummies/core/\">Core</a>, all year round: <a href=\"/live-rosin-gummies/tropical-typhoon/\">Tropical Typhoon</a>, <a href=\"/live-rosin-gummies/bangin-berry/\">Bangin' Berry</a>, <a href=\"/live-rosin-gummies/watermelon-jolt/\">Watermelon Jolt</a>, <a href=\"/live-rosin-gummies/peachy-mango/\">Peachy Mango</a> and <a href=\"/live-rosin-gummies/electric-grape/\">Electric Grape</a>.</li><li><a href=\"/live-rosin-gummies/specialty/\">Specialty</a>: <a href=\"/live-rosin-gummies/remberry/\">Remberry</a>, the sleep gummy, and <a href=\"/live-rosin-gummies/blue-raspberry/\">Blue Raspberry</a>, the sugar-free one.</li><li><a href=\"/live-rosin-gummies/limited-edition/\">Limited Edition</a>: <a href=\"/live-rosin-gummies/lemon-burst/\">Lemon Burst</a> and <a href=\"/live-rosin-gummies/prickly-pear/\">Prickly Pear</a>, a limited run, while they last.</li></ul><p>Not sure where to start? Browse our <a href=\"/blog/flavor-field-guide/\">flavor field guide</a> and pick the one that tastes like paradise to you.</p>"
+          },
+          {
+            "q": "What does prickly pear taste like?",
+            "a": "<p>Prickly pear tastes sweet and juicy, often compared to a mix of watermelon and bubblegum with a soft berry finish. It's the fruit of the paddle cactus, with jewel-toned flesh and a sunny, desert-meets-tropics vibe. Our <a href=\"/live-rosin-gummies/prickly-pear/\">Prickly Pear</a> gummy leans into that: think ripe melon, a pop of berry and a candy-sweet finish, with the distinct flower note of fresh-pressed hash rosin underneath. It's a limited edition, here for a limited run, while it lasts.</p>"
+          },
+          {
+            "q": "Does Hashables make a sleep gummy?",
+            "a": "<p>Yes: <a href=\"/live-rosin-gummies/remberry/\">Remberry</a> is the Hashables sleep gummy, a specialty flavor made for winding down at night. It pairs THC hash rosin with CBN and CBD. In some markets it's finished with a touch of melatonin, and in others it's melatonin-free, so check your pack to see which one you have. Flavor-wise, think deep, dark berries. Like any edible, it can take up to two hours or more to kick in, so plan ahead and start low.</p>"
+          },
+          {
+            "q": "Is there a sugar-free Hashables gummy?",
+            "a": "<p>Yes: <a href=\"/live-rosin-gummies/blue-raspberry/\">Blue Raspberry</a> is the sugar-free Hashables. It's one of our two <a href=\"/live-rosin-gummies/specialty/\">specialty flavors</a>, alongside Remberry, the sleep gummy, and it's made with solventless hash rosin like every Hashables gummy. Think cool, bright blue raspberry with a tangy snap, minus the sugar. Check the label on your pack for the full details, and use the <a href=\"/find-us/\">store finder</a> to find Hashables near you, then check the dispensary's live menu.</p>"
+          },
+          {
+            "q": "Are Lemon Burst and Prickly Pear limited edition?",
+            "a": "<p>Yes, <a href=\"/live-rosin-gummies/lemon-burst/\">Lemon Burst</a> and <a href=\"/live-rosin-gummies/prickly-pear/\">Prickly Pear</a> are limited-edition flavors, here for a limited run, while they last. If you spot one on a dispensary's live menu, catch it while you can. Our core flavors (Tropical Typhoon, Bangin' Berry, Watermelon Jolt, Peachy Mango and Electric Grape) are year-round, and the core and specialty flavors aren't going away. See the whole <a href=\"/live-rosin-gummies/limited-edition/\">Limited Edition</a> lineup.</p>"
+          },
+          {
+            "q": "Do Hashables taste like weed?",
+            "a": "<p>A little, in the best way: Hashables have a distinct flower flavor from the solventless hash rosin, something you can't get from distillate. Each gummy is formulated with that hash rosin and natural flavors, so think bright fruit up front with a real-flower finish. It's the taste of fresh pressed, and part of what makes Hashables, Hashables. New to rosin edibles? Start with the flavor that sounds best to you, and take it low and slow.</p>"
+          }
+        ]
+      },
+      {
+        "id": "finding",
+        "label": "Finding Hashables",
+        "items": [
+          {
+            "q": "Where can I buy Hashables near me?",
+            "a": "<p>Use the <a href=\"/find-us/\">Hashables store finder</a> to see licensed dispensaries near you that carry Hashables. Let it use your location, or just type in a town name; no ZIP code needed. Availability may vary, so check the dispensary's live menu for the latest flavors before you head over. There's no online ordering on this site, since Hashables are sold through licensed dispensaries. Shop not on the list? <a href=\"/find-us/#request\">Tell us where you want to find Hashables</a>. Now go getcha some.</p>"
+          },
+          {
+            "q": "Can I request Hashables at my local dispensary?",
+            "a": "<p>Yes: use our <a href=\"/find-us/#request\">dispensary request form</a> to name the dispensary you want Hashables to call on. Requests show us where people want to find Hashables next, so every shop you name counts. It never hurts to let your budtender know you're looking for Hashables, too. In the meantime, the <a href=\"/find-us/\">store finder</a> can point you to the nearest licensed dispensary that carries Hashables today; just use your location or type in a town.</p>"
+          },
+          {
+            "q": "Can I order Hashables online or have them shipped?",
+            "a": "<p>No. Hashables are sold through licensed dispensaries, so there's no online ordering on this site, and we can't ship cannabis to you. Cannabis also can't legally cross state lines, even between two states where it's legal, so buy your Hashables in the state where you plan to enjoy them and keep them there. The quickest way to getcha some is the <a href=\"/find-us/\">store finder</a>: find a nearby shop, then check its live menu to see what's in stock before you go.</p>"
+          },
+          {
+            "q": "What does the new Hashables packaging look like?",
+            "a": "<p>Hashables now come in Mylar bags, and the swirl pattern from the old packaging lives on in the new design. So if you know Hashables by that swirl, you'll still spot it on the shelf. Can't find it? Ask your budtender, check the dispensary's live menu, or use the <a href=\"/find-us/\">store finder</a> to see which shops near you carry Hashables.</p>"
+          },
+          {
+            "q": "Do you have to be 21 to buy Hashables?",
+            "a": "<p>Yes. To buy Hashables at a licensed adult-use dispensary, you must be 21 or older and show a valid government-issued photo ID. Never share Hashables with anyone under 21, and keep them where kids and pets can't get to them. Once you're set, the <a href=\"/find-us/\">store finder</a> will point you to a dispensary near you that carries Hashables.</p>"
+          },
+          {
+            "q": "I own a dispensary. How do I carry Hashables?",
+            "a": "<p>For wholesale, email <a href=\"mailto:info@stashie.com\">info@stashie.com</a>. That's the inbox for licensed retailers who want to put Hashables on their menu, so include your dispensary's name and location to get the conversation going. Customers who'd like to see Hashables at their favorite shop can use the <a href=\"/find-us/#request\">dispensary request form</a> to name the dispensary they want us to call on. For anything else, write to <a href=\"mailto:info@hashables.com\">info@hashables.com</a>.</p>"
+          }
+        ]
+      },
+      {
+        "id": "using",
+        "label": "Using Edibles",
+        "items": [
+          {
+            "q": "How long do Hashables take to kick in, and how long do they last?",
+            "a": "<p>Like any edible, Hashables can take up to two hours or more to kick in, because edibles are absorbed through your digestive system instead of your lungs. Timing depends on your body, what you've eaten and more, and the effects of edibles usually last longer than smoking or vaping, often several hours. So don't take more just because you don't feel it yet; patience is part of the ride. Start low, go slow, and plan to be somewhere comfortable. Our <a href=\"/blog/start-low-go-slow/\">start low, go slow guide</a> has more.</p>"
+          },
+          {
+            "q": "How many Hashables should I take?",
+            "a": "<p>Start low and go slow. Check the potency printed on the state label on your pack, begin with a small amount, and wait at least two hours before deciding whether to have more. Everyone's body handles edibles differently, so the right amount is personal and can change with things like what you've eaten that day. New to edibles? Your budtender can help you choose a starting point, and our <a href=\"/blog/start-low-go-slow/\">start low, go slow guide</a> covers the basics.</p>"
+          },
+          {
+            "q": "Can I drive after eating Hashables?",
+            "a": "<p>No. Never drive or operate heavy machinery after eating a cannabis edible. Driving while impaired by cannabis is illegal and dangerous, and because edibles can take up to two hours or more to kick in and their effects can last for hours, you may be impaired for longer than you think. Plan your ride home before you start, or save your Hashables for a night when you're staying put.</p>"
+          },
+          {
+            "q": "How should I store Hashables gummies?",
+            "a": "<p>Store Hashables in their original packaging, somewhere cool and dry and out of direct sun, so the gummies stay fresh and don't get sticky. Most important: keep them up high or locked away, out of reach of kids and pets, because gummies can look a lot like regular candy. If a child eats one, call Poison Control at 1-800-222-1222; if a pet does, call your vet. In an emergency, call 911.</p>"
+          }
+        ]
+      },
+      {
+        "id": "quality",
+        "label": "Quality & Awards",
+        "items": [
+          {
+            "q": "Are Hashables lab tested?",
+            "a": "<p>Yes: like every licensed cannabis product, Hashables go through the testing their state requires before they reach dispensary shelves. That testing measures cannabinoid potency and screens for contaminants under state rules, and the results for each batch are reported in a certificate of analysis, or COA. Each state sets its own testing rules, so the exact checks can vary. Want the results behind your pack? The <a href=\"/lab-results/\">Lab Results</a> page shows you how to get them, or read <a href=\"/blog/why-lab-testing-matters/\">why lab testing matters</a>.</p>"
+          },
+          {
+            "q": "Where can I find Hashables lab results?",
+            "a": "<p>Start with the state label on your pack, where you'll find the batch or lot information. Then ask the dispensary that sold it for that batch's certificate of analysis (COA), or email <a href=\"mailto:info@hashables.com\">info@hashables.com</a> with the flavor and batch number. Our <a href=\"/lab-results/\">Lab Results</a> page walks through each step and has a quick form that starts the email for you. Keep the pack handy until you have what you need.</p>"
+          },
+          {
+            "q": "What awards has Hashables won?",
+            "a": "<p>Hashables has taken home High Times Cannabis Cup and Harvest Cup honors in Massachusetts for Watermelon Jolt and Tropical Typhoon. Highlights include:</p><ul><li><a href=\"https://hightimes.com/events/the-winners-of-the-high-times-cannabis-cup-massachusetts-peoples-choice-edition-2022/\">High Times Cannabis Cup Massachusetts: People's Choice Edition 2022</a> — Sativa Gummies, Second Place: Hashables – Watermelon Jolt Solventless Infused Sativa Bites</li><li><a href=\"https://hightimes.com/events/the-winners-of-the-high-times-cannabis-cup-massachusetts-peoples-choice-edition-2023/\">High Times Cannabis Cup Massachusetts: People's Choice Edition 2023</a> — Edibles: Sativa Gummies, Third Place: Hashables – Tropical Typhoon Sativa Gummies</li><li><a href=\"https://www.apextrading.com/blog/congratulations-to-the-remarkable-massachusetts-2023-harvest-cup-winners/\">2023 Harvest Cup (Worcester, MA)</a> — Sugar Confections Winner: Hashables Tropical Typhoon – Nova Farms</li></ul><p>Find the latest on our <a href=\"/press/\">Press</a> page.</p>"
+          },
+          {
+            "q": "How do I contact Hashables?",
+            "a": "<p>Email <a href=\"mailto:info@hashables.com\">info@hashables.com</a> or use our <a href=\"/contact/\">contact page</a>. If your note is about a specific pack, include the flavor, the batch or lot number from the state label and the dispensary where you bought it, so we can look into it. Wholesale questions go to <a href=\"mailto:info@stashie.com\">info@stashie.com</a>. And if you just want to tell us which flavor tastes most like paradise, we're all ears.</p>"
+          }
+        ]
+      }
+    ]
+  },
+  "lab": {
+    "title": "Hashables Lab Results: Get the COA for Your Pack",
+    "intro": "Lab results show what's actually in a cannabis product, from how much THC and other cannabinoids it contains to whether it cleared the contaminant screening its state requires. Results are tied to a specific batch, so here's how to find the certificate of analysis for the pack in your hand.",
+    "sections": [
+      {
+        "heading": "How to get the lab results for your pack",
+        "html": "<ol><li><strong>Find the batch.</strong> Look for the batch or lot information on the state label on your pack.</li><li><strong>Ask the shop.</strong> Request the certificate of analysis (COA) for that batch from the dispensary that sold it.</li><li><strong>Or email us.</strong> Send the flavor and batch number to <a href=\"mailto:info@hashables.com\">info@hashables.com</a>, or fill in the quick form on this page to start that email.</li></ol>"
+      },
+      {
+        "heading": "What a certificate of analysis (COA) shows",
+        "html": "<ul><li><strong>Cannabinoid potency:</strong> how much THC and other cannabinoids the batch contains.</li><li><strong>Contaminant screening:</strong> the results of the contaminant tests that state rules require.</li><li><strong>Batch details:</strong> the batch or lot the report covers, so you can match it to your pack.</li></ul><p>Want the bigger picture? Read <a href=\"/blog/why-lab-testing-matters/\">why lab testing matters</a>.</p>"
+      }
+    ],
+    "note": "Testing rules are set by each state, so what gets tested and how results are reported can vary from state to state."
+  }
+}

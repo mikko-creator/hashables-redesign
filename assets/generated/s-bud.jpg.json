@@ -1,0 +1,27 @@
+{
+  "tool": "tools/fal-gen.mjs",
+  "slot": "S-BUD",
+  "file": "assets/generated/s-bud.jpg",
+  "iptcDigitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+  "provenance": "AI-generated (fal.ai). Illustrative only: never a photograph of Hashables (hashables.com) or Nova Farms, their farms, staff, customers, products or brands.",
+  "model": "fal-ai/flux-pro/v1.1-ultra",
+  "prompt": "extreme close-up macro of a ripe cannabis flower still on the plant, dense frosty trichomes glistening like tiny crystals, green and soft violet sugar leaves with amber pistils, warm late-afternoon daylight from behind, very shallow depth of field with a soft green and gold bokeh background, sun-washed retro summer photograph, 1970s film look, warm highlights, gentle film grain, crisp focus, natural colour, no people, no hands, no faces, no text, no lettering, no labels, no logos, no signage, all surfaces blank and unmarked",
+  "input": {
+    "aspect_ratio": "16:9",
+    "output_format": "jpeg",
+    "safety_tolerance": "5"
+  },
+  "seed": 2730360863,
+  "requestId": "01a169f1-8816-70e2-b201-979723cd16af",
+  "cutout": null,
+  "width": 2752,
+  "height": 1536,
+  "sha256": "49791446993fd72cd3a5bc2f9b4b12f5ae764b6cb79ec5a086062085cf7d593e",
+  "raw": "tmp/img/raw/S-BUD.1792778807684.jpg",
+  "attempt": 1,
+  "generatedAt": "2026-10-23T18:06:49.691Z",
+  "review": {
+    "verdict": "PENDING",
+    "reason": null
+  }
+}

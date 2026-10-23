@@ -1,0 +1,27 @@
+{
+  "tool": "tools/fal-gen.mjs",
+  "slot": "S-WAVE",
+  "file": "assets/generated/s-wave.jpg",
+  "iptcDigitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+  "provenance": "AI-generated (fal.ai). Illustrative only: never a photograph of Hashables (hashables.com) or Nova Farms, their farms, staff, customers, products or brands.",
+  "model": "fal-ai/flux-pro/v1.1-ultra",
+  "prompt": "a clean turquoise ocean wave curling and peeling to the right, shot low from the water at wave level, the wave lip backlit by a low golden sun so the water glows translucent aqua and teal, fine golden spray drifting off the crest, soft pink sky above, empty water with no surfers, no boats, sun-washed retro summer photograph, 1970s film look, warm highlights, gentle film grain, crisp focus, natural colour, no people, no hands, no faces, no text, no lettering, no labels, no logos, no signage, all surfaces blank and unmarked",
+  "input": {
+    "aspect_ratio": "16:9",
+    "output_format": "jpeg",
+    "safety_tolerance": "5"
+  },
+  "seed": 1414750072,
+  "requestId": "01a169f1-8814-7a42-ba09-b7e88eff9ff0",
+  "cutout": null,
+  "width": 2752,
+  "height": 1536,
+  "sha256": "32bb33824c66c29cd8bb42e5ad4130c657fdac554bce6c8692221b46f5a1e925",
+  "raw": "tmp/img/raw/S-WAVE.1792778809362.jpg",
+  "attempt": 1,
+  "generatedAt": "2026-10-23T18:06:51.596Z",
+  "review": {
+    "verdict": "PENDING",
+    "reason": null
+  }
+}

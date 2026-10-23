@@ -1,0 +1,5 @@
+tmp/
+publish/
+preview/
+node_modules/
+*.label-tmp
