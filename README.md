@@ -15,6 +15,9 @@ This is a **pitch build**, not the live site.
   palette, a CSS-drawn striped sunset sun, a perspective grid horizon, frosted-glass panels over photography.
 - **Depth.** Layered heroes (video, palms, grid, glass) with parallax, and the client's own gummy-cube stacks breaking
   out of their sections into the next band.
+- **Navigation.** On desktop the wordmark sits centred with the menu split either side: Gummies opens a mega menu
+  with every line and flavor, Learn and About open dropdowns, and Find us, Contact and the store-finder button sit in
+  the bar. Phones and tablets get a menu button that opens the full-screen menu.
 - **Motion.** Looping sunset and wave videos, scroll reveals, floating cube stacks, tilt-and-glare hovers. All of it
   stops under `prefers-reduced-motion`.
 - **Built for search.** One H1 per page, descriptive titles and meta descriptions, canonical URLs, breadcrumbs,
@@ -43,11 +46,11 @@ Every URL the build prints is relative to its page, so `dist/` works from any fo
 |---|---|
 | `src/build.mjs` | page list, link/asset checks, sitemap + robots |
 | `src/pages/` | home, gummies (hub, lines, SKUs), info pages, blog |
-| `src/lib/` | layout (head, header, menu drawer, footer, age gate), shared sections, HTML helpers |
+| `src/lib/` | layout (head, header with mega menu, mobile menu drawer, footer, age gate), shared sections, HTML helpers |
 | `src/content/` | flavors, site config, FAQ, blog articles, privacy policy, image manifest |
 | `src/styles/site.css`, `src/scripts/site.js` | the design system and interactions |
 | `assets/generated/` | AI image originals with their prompt/seed sidecars |
-| `tools/` | image derivatives (`derive.py`), cut-outs (`cutouts.py`), video loops, generation runners, preview, checks |
+| `tools/` | image derivatives (`derive.py`), cut-outs (`cutouts.py`) and their menu thumbnails (`thumbs.py`), video loops, generation runners, preview, checks |
 
 ## Imagery
 

@@ -14,14 +14,27 @@ export const SITE = {
   locator: 'https://storelocator.litalerts.com/?hashkey=12AC2D0BBA3B0E965AB0399D2614A433',
 };
 
-// header bar (desktop) - the full menu lives in the drawer, as on the reference structure
-export const NAV = [
-  { label: 'Gummies', href: '/live-rosin-gummies/' },
-  { label: 'Our Story', href: '/our-story/' },
-  { label: 'FAQs', href: '/faqs/' },
-  { label: 'Blog', href: '/blog/' },
+// desktop header: split either side of the centred wordmark. "Gummies" opens the mega menu (every line and flavor);
+// Learn and About open dropdowns. Together they carry everything the mobile drawer does.
+export const NAV_L = [
+  { label: 'Gummies', mega: true },
+  { label: 'Find us', href: '/find-us/' },
+  { label: 'Learn', id: 'learn', items: [
+    { label: 'FAQs', href: '/faqs/', icon: 'spark', text: 'The questions we hear most' },
+    { label: 'Lab Results', href: '/lab-results/', icon: 'lab', text: 'How to get the COA for your pack' },
+    { label: 'Blog', href: '/blog/', icon: 'wave', text: 'Live rosin 101, flavor guides and more' },
+  ] },
+];
+export const NAV_R = [
+  { label: 'About', id: 'about', social: true, items: [
+    { label: 'Our Story', href: '/our-story/', icon: 'sun', text: 'Fresh pressed, New England’s own' },
+    { label: 'Awards & Press', href: '/press/', icon: 'trophy', text: 'Hardware on the shelf' },
+    { label: 'About Nova Farms', href: SITE.nova, ext: true, icon: 'leaf', text: 'Proudly part of the Nova Farms family' },
+  ] },
+  { label: 'Contact', href: '/contact/' },
 ];
 
+// mobile drawer (below the desktop breakpoint the header shows only the menu button, the wordmark and the CTA)
 export const DRAWER_LINKS = [
   { label: 'Find Hashables', href: '/find-us/' },
   { label: 'Our Story', href: '/our-story/' },

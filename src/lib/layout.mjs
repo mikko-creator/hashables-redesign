@@ -1,6 +1,6 @@
 // layout.mjs - the page shell: <head>, icon sprite, age gate, header, menu drawer, footer.
-import { esc, u, icon, cubes, jsonld } from './html.mjs';
-import { SITE, NAV, DRAWER_LINKS, FOOTER } from '../content/site.mjs';
+import { esc, u, icon, cubes, gen, jsonld } from './html.mjs';
+import { SITE, NAV_L, NAV_R, DRAWER_LINKS, FOOTER } from '../content/site.mjs';
 import { FLAVORS, LINES, flavorUrl, lineUrl } from '../content/flavors.mjs';
 
 const SPRITE = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -55,21 +55,49 @@ export function logo(cls = 'logo') {
   return `<svg class="${cls}" viewBox="${VIEWBOX}" role="img" aria-label="Hashables" focusable="false"><use href="#hsh-logo"></use></svg>`;
 }
 
-const thumb = (f) => `<a class="dr-flavor" href="${u(flavorUrl(f))}" style="--c:${f.color}">${cubes(f.slug, { cls: 'dr-flavor__img' })}<span>${esc(f.name)}${f.badge ? `<small>${esc(f.badge)}</small>` : ''}</span></a>`;
+const thumb = (f) => `<a class="dr-flavor" href="${u(flavorUrl(f))}" style="--c:${f.color}">${cubes(f.slug, { cls: 'dr-flavor__img', sm: true })}<span>${esc(f.name)}${f.badge ? `<small>${esc(f.badge)}</small>` : ''}</span></a>`;
+const LINE_KEYS = ['core', 'specialty', 'limited'];
+
+// desktop nav: a plain link, a dropdown (Learn, About) or the Gummies mega menu. Triggers are disclosure buttons;
+// panels start [hidden], so their lazy thumbnails load only when a panel first opens.
+function megaGummies(id) {
+  return `<div class="mm" id="${id}" hidden data-nav-panel><div class="mm__in">
+      ${LINE_KEYS.map((l) => `<div class="mm__col mm__col--${l}">
+        <a class="mm__head" href="${u(lineUrl(l))}"><span class="mm__k">${esc(LINES[l].kicker)}</span><span class="mm__name">${esc(LINES[l].name)} ${icon('arrow')}</span></a>
+        <div class="mm__flavors">${FLAVORS.filter((f) => f.line === l).map(thumb).join('')}</div>
+      </div>`).join('')}
+      <div class="mm__col mm__col--promo">
+        <a class="mm__promo" href="${u('/live-rosin-gummies/')}">${gen('s-hero', { alt: '', sizes: '320px', cls: 'mm__promo-img' })}<span class="mm__promo-body"><span class="mm__k">All gummies</span><span class="mm__promo-h">Stacks on stacks <span class="script script--neon">of flavor</span></span><span class="mm__promo-go">Shop the lineup ${icon('arrow')}</span></span></a>
+        <a class="mm__find" href="${u('/find-us/')}">${icon('pin')} Find a stack near you</a>
+      </div>
+    </div></div>`;
+}
+const SOCIAL = `<div class="dd__foot"><span>Follow along</span><a href="${SITE.instagram}" rel="noopener" aria-label="Hashables on Instagram">${icon('insta')}</a><a href="${SITE.twitter}" rel="noopener" aria-label="Hashables on X (Twitter)">${icon('x')}</a></div>`;
+function navItem(n) {
+  if (n.href) return `<li class="nav__item"><a class="nav__link" href="${u(n.href)}">${esc(n.label)}</a></li>`;
+  const id = n.mega ? 'mm-gummies' : 'dd-' + n.id;
+  const btn = `<button class="nav__btn" type="button" aria-expanded="false" aria-controls="${id}" data-nav-btn>${esc(n.label)} ${icon('chev')}</button>`;
+  if (n.mega) return `<li class="nav__item nav__item--mega" data-nav-item>${btn}${megaGummies(id)}</li>`;
+  return `<li class="nav__item nav__item--dd" data-nav-item>${btn}<div class="dd" id="${id}" hidden data-nav-panel><div class="dd__in">
+      <ul class="dd__list">${n.items.map((it) => `<li><a class="dd__link" href="${it.ext ? it.href : u(it.href)}"${it.ext ? ' rel="noopener"' : ''}><span class="dd__ico">${icon(it.icon)}</span><span class="dd__txt"><span class="dd__t">${esc(it.label)}${it.ext ? ' ' + icon('out') : ''}</span><span class="dd__d">${esc(it.text)}</span></span></a></li>`).join('')}</ul>
+      ${n.social ? SOCIAL : ''}
+    </div></div></li>`;
+}
 
 export function header() {
   return `<header class="hdr" data-hdr>
-  <div class="hdr__in">
-    <a class="hdr__logo" href="${u('/')}" aria-label="Hashables home">${logo('logo logo--hdr')}</a>
-    <nav class="hdr__nav" aria-label="Primary">
-      ${NAV.map((n) => `<a href="${u(n.href)}">${esc(n.label)}</a>`).join('')}
-    </nav>
-    <div class="hdr__act">
-      <a class="hdr__find" href="${u('/find-us/')}">${icon('pin')}<span>Find us</span></a>
-      <a class="btn btn--sun btn--sm" href="${u('/find-us/')}">Getcha some</a>
+  <nav class="hdr__in" aria-label="Primary">
+    <div class="hdr__side hdr__side--l">
       <button class="hdr__menu" type="button" aria-expanded="false" aria-controls="drawer" data-menu-open>${icon('menu')}<span>Menu</span></button>
+      <ul class="nav">${NAV_L.map(navItem).join('')}</ul>
     </div>
-  </div>
+    <a class="hdr__logo" href="${u('/')}" aria-label="Hashables home">${logo('logo logo--hdr')}</a>
+    <div class="hdr__side hdr__side--r">
+      <ul class="nav">${NAV_R.map(navItem).join('')}</ul>
+      <a class="btn btn--sun btn--sm hdr__cta" href="${u('/find-us/')}">Getcha some</a>
+      <a class="hdr__pin" href="${u('/find-us/')}" aria-label="Find Hashables near you">${icon('pin')}</a>
+    </div>
+  </nav>
 </header>
 <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Site menu" hidden data-drawer>
   <div class="drawer__bg" data-menu-close></div>

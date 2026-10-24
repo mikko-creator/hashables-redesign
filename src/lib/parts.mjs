@@ -160,7 +160,6 @@ export function finderBand({ heading = 'Getcha <span class="script script--neon"
       </form>
       <p class="fine">Availability may vary. Please check the dispensary’s live menu for the latest offerings.</p>
     </div>
-    <div class="finder-band__stack" aria-hidden="true"><div class="float float--a" data-parallax="0.12">${cubes('watermelon-jolt', { cls: 'cubes cubes--float' })}</div><div class="float float--b" data-parallax="0.2">${cubes('lemon-burst', { cls: 'cubes cubes--float' })}</div></div>
   </div>
 </section>`;
 }

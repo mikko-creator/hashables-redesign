@@ -42,8 +42,10 @@ export const genUrl = (key, w = 1600) => u('/assets/img/gen/' + key + '-' + w + 
 
 /** a transparent cube-stack cut-out (the client's own product art) */
 export const CUBE_SIZE = {};
-export function cubes(slug, { alt = '', cls = 'cubes', eager = false } = {}) {
-  return `<img src="${u('/assets/img/cut/cubes-' + slug + '.webp')}" width="660" height="552" alt="${esc(alt)}" class="${cls}" ${eager ? 'decoding="async"' : 'loading="lazy" decoding="async"'}>`;
+// sm: the 220 px thumbnail from tools/thumbs.py (menus show the stacks at ~56-64 px)
+export function cubes(slug, { alt = '', cls = 'cubes', eager = false, sm = false } = {}) {
+  const [file, w, h] = sm ? ['-sm.webp', 220, 184] : ['.webp', 660, 552];
+  return `<img src="${u('/assets/img/cut/cubes-' + slug + file)}" width="${w}" height="${h}" alt="${esc(alt)}" class="${cls}" ${eager ? 'decoding="async"' : 'loading="lazy" decoding="async"'}>`;
 }
 
 export const attrs = (o) => Object.entries(o).filter(([, v]) => v !== false && v != null).map(([k, v]) => (v === true ? k : `${k}="${esc(v)}"`)).join(' ');

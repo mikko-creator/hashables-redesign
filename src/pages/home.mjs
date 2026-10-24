@@ -32,7 +32,6 @@ export function home({ faq, blog, pickFaq }) {
   <div class="hero__stacks" aria-hidden="true">
     <div class="float float--h0" data-parallax="0.10">${cubes('tropical-typhoon', { cls: 'cubes cubes--float', eager: true })}</div>
     <div class="float float--h1" data-parallax="0.18">${cubes('prickly-pear', { cls: 'cubes cubes--float', eager: true })}</div>
-    <div class="float float--h2" data-parallax="0.28">${cubes('electric-grape', { cls: 'cubes cubes--float' })}</div>
   </div>
   <button type="button" class="vidctl" data-video-toggle aria-label="Pause the background video" aria-pressed="false">${icon('pause')}</button>
   ${wave('var(--sand)')}
@@ -48,6 +47,7 @@ ${trustStrip()}
   ${wave('var(--sand)', true, 'seam--top')}
   <div class="wrap feature__in">
     <div class="feature__pane glass glass--strong" data-reveal>
+      <span class="sticker sticker--pink sticker--pane" aria-hidden="true">Limited<br>run</span>
       ${eyebrow('Limited edition · Featured flavor')}
       <h2 id="feat-h" class="h2">${esc(pp.name)}</h2>
       <p class="feature__tag">${esc(pp.tagline)}</p>
@@ -56,7 +56,6 @@ ${trustStrip()}
       <ul class="pairs">${pp.pairs.map((p) => `<li>${icon('sun')} ${esc(p)}</li>`).join('')}</ul>
       <div class="btnrow"><a class="btn btn--sun" href="${u(flavorUrl(pp))}">Explore the flavor ${icon('arrow')}</a><a class="btn btn--glass" href="${u(lineUrl('limited'))}">All limited editions</a></div>
     </div>
-    <div class="feature__cubes" aria-hidden="true" data-parallax="-0.1">${cubes(pp.slug, { cls: 'cubes cubes--hero' })}<span class="sticker sticker--pink">Limited<br>run</span></div>
   </div>
 </section>
 
