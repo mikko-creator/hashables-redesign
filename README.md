@@ -13,13 +13,16 @@ This is a **pitch build**, not the live site.
   wins, Lab Results, a phone-first store finder with a "tell us where to call" request form, and six SEO articles.
 - **Retro beach surf x synthwave x glass.** Brand pink palms and the packaging swirl, the brand yellow / pink / aqua
   palette, a CSS-drawn striped sunset sun, a perspective grid horizon, frosted-glass panels over photography.
-- **Depth.** Layered heroes (video, palms, grid, glass) with parallax, and the client's own gummy-cube stacks breaking
+- **Products first.** The new HSH26 packaging leads: every flavor card, line row, product page and menu shows the
+  flavor's own packaging tile, the mylar bag renders stand in the home and Gummies heroes and on their product pages,
+  and the client's studio photography replaces the generated scenes.
+- **Depth.** Layered heroes (video or photo, grid, glass) with parallax, and the new bags and packaging tiles breaking
   out of their sections into the next band.
 - **Navigation.** On desktop the wordmark sits centred with the menu split either side: Gummies opens a mega menu
   with every line and flavor, Learn and About open dropdowns, and Find us, Contact and the store-finder button sit in
   the bar. Phones and tablets get a menu button that opens the full-screen menu.
-- **Motion.** A looping surf film in the home hero under a light brand gradient, a looping wave video, scroll
-  reveals, floating cube stacks, tilt-and-glare hovers. All of it stops under `prefers-reduced-motion`.
+- **Motion.** A looping surf film in the home hero under a light brand gradient, scroll reveals, parallax depth and
+  tilt-and-glare hovers. All of it stops under `prefers-reduced-motion`.
 - **Built for search.** One H1 per page, descriptive titles and meta descriptions, canonical URLs, breadcrumbs,
   JSON-LD (Organization, Product, FAQPage, Article, BreadcrumbList), sitemap.xml and robots.txt for production.
 
@@ -50,15 +53,19 @@ Every URL the build prints is relative to its page, so `dist/` works from any fo
 | `src/content/` | flavors, site config, FAQ, blog articles, privacy policy, image manifest |
 | `src/styles/site.css`, `src/scripts/site.js` | the design system and interactions |
 | `assets/generated/` | AI image originals with their prompt/seed sidecars |
-| `tools/` | image derivatives (`derive.py`), cut-outs (`cutouts.py`) and their menu thumbnails (`thumbs.py`), video loops, generation runners, preview, checks |
+| `tools/` | the client's brand-folder derivatives (`brand-assets.py`), image derivatives (`derive.py`), the footer palm cut-out (`cutouts.py`), video loops, generation runners, preview, checks |
 
 ## Imagery
 
-- **Client art** (from hashables.com): the logo, the nine flavor cube photos (cut out for the floating stacks), the
-  pink palms, yellow palms and swirl backgrounds, the award badges and the video thumbnail.
-- **Generated** for the concept: 15 stills (fal flux-pro ultra), 3 stills (Higgsfield Qwen Image 3) and the looping
-  wave video (Higgsfield Kling image-to-video). None shows a person, a product, text or a real Nova Farms place. Every
-  generated file carries the IPTC `trainedAlgorithmicMedia` label (XMP in images, container tags in video).
+- **Client art and photography** (HSH27 brand folder, via `tools/brand-assets.py`): the nine HSH26 packaging tiles,
+  the mylar bag renders supplied for Electric Grape, Peachy Mango and Watermelon Jolt (also fanned together, as on the
+  HSH26 one-sheet), the studio product photography, and the surfer, palm, Milky Way and full-spectrum backgrounds.
+  From hashables.com: the logo, the pink palms, yellow palms and swirl backgrounds, the award badges and the video
+  thumbnail. The studio photos show the earlier jar packaging.
+- **Generated** for the concept: only three process stills remain (fresh flower, fresh frozen, pressed rosin; fal
+  flux-pro ultra), because the brand folder has no process photography. Each carries the IPTC
+  `trainedAlgorithmicMedia` label in its XMP. Every other generated still and the wave video were retired in favour of
+  the client's own images.
 - **Footage:** the home hero film is stock beach footage supplied for the pitch (two surfers walking out of the sea at
   sunset). The supplied file is 1280x720, so it was AI-upscaled to 1920x1080 with Topaz Proteus on fal
   (`tools/fal-upscale.mjs`) and looped by `tools/make-loop.mjs --footage` (1920x1080 desktop, 864x1080 phone crop). It

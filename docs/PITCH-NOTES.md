@@ -28,14 +28,18 @@
 | 10 | Privacy policy (carried over as published, dated Sept 1, 2021), accessibility statement and age-gate wording need legal review | legal pages |
 | 11 | Massachusetts marketing rules review of imagery and copy | site-wide |
 | 12 | The hero film is stock footage supplied for the pitch: confirm its licence covers the live site | home hero |
+| 13 | Mylar bag renders came for three flavors only (Electric Grape, Peachy Mango, Watermelon Jolt). The other six (Tropical Typhoon, Bangin' Berry, Remberry, Blue Raspberry, Lemon Burst, Prickly Pear) slot straight into their product pages and line rows once supplied | product pages, line pages |
+| 14 | The studio product photos show the earlier jar packaging; swap in mylar-bag photography when it is shot | inner heroes, story, blog |
+| 15 | "Twenty 5 mg THC pieces per bag" (home) and "20 pieces per bag" (product pages) come from the HSH26 New Jersey wholesale one-sheet (v1): confirm for Massachusetts | home, product pages |
+| 16 | Logo lockup: the HSH26 one-sheet reads "Live Rosin Gummies" under the wordmark, the site logo (from hashables.com) "Solventless Gummies". The brand guide and the mylar print files were saved without PDF content, so they open only in Illustrator: export a PDF or PNG of the current lockup | header, footer |
 
 ## Recommendations
 
 - **Store finder:** the concept keeps the live Lit Alerts map and wraps it in a phone-first guide plus a "tell us where
   to call" request form. The next step is a native finder fed by a daily inventory check, so a visitor can search by
   town or location and only see shops that carry Hashables today.
-- **Photography:** the flavor cube photos are 800 px masters. Full-resolution flavor shots and pack renders would make
-  the floating stacks and flavor heroes sharper on large screens.
+- **Photography:** the HSH26 packaging tiles are 680 px masters, sharp at card and product-page size. Larger tile
+  exports and the remaining six bag renders would let the packaging run bigger on large screens.
 - **Forms:** the request, contact and COA forms open the visitor's email app (no backend). Connect them to Nova's CRM
   or helpdesk for launch.
 - **Brand fonts:** swap in the licensed brand script face for the stand-in once files are supplied.

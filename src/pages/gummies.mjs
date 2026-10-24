@@ -1,8 +1,8 @@
 // gummies.mjs - the product tree on the reference structure: hub (/live-rosin-gummies/), one page per line, one page
 // per SKU (the client asked for "a page for each SKU instead of one long scroll, for search").
 import { shell } from '../lib/layout.mjs';
-import { esc, raw, u, gen, cubes, icon } from '../lib/html.mjs';
-import { pageHero, breadcrumbs, eyebrow, wave, sun, grid, flavorCard, trustStrip, processSteps, ctaBand, relink } from '../lib/parts.mjs';
+import { esc, raw, u, pic, pack, bag, trio, HAS_BAG, icon } from '../lib/html.mjs';
+import { pageHero, breadcrumbs, eyebrow, wave, sun, grid, flavorCard, trustStrip, processSteps, ctaBand, relink, tileFan } from '../lib/parts.mjs';
 import { SITE } from '../content/site.mjs';
 import { FLAVORS, LINES, AWARDS, byLine, flavorUrl, lineUrl } from '../content/flavors.mjs';
 
@@ -13,7 +13,7 @@ export function hub() {
   const body = `
 ${pageHero({ eyebrow: 'Fresh-pressed hash rosin gummies', title: 'Stacks on stacks', scriptWord: 'of flavor', crumbs: bc.html,
     lead: 'Every Hashables gummy starts the same way: our own fresh frozen farm flower, pressed into solventless live rosin. No distillate, just full-spectrum hash and flavor that tastes like paradise.',
-    img: 's-hero', imgAlt: 'A tropical beach at sunset under a pink sky', stacks: ['bangin-berry', 'blue-raspberry', 'peachy-mango'],
+    img: 'surfer', imgPos: '50% 62%', imgAlt: '', product: trio({ eager: true, sizes: '(min-width: 1100px) 520px, (min-width: 720px) 46vw, 78vw' }),
     cta: `<div class="btnrow"><a class="btn btn--sun" href="#core">Shop the lineup ${icon('arrow')}</a><a class="btn btn--glass" href="${u('/find-us/')}">${icon('pin')} Find a store</a></div>` })}
 ${lineKeys.map((k, i) => {
     const L = LINES[k];
@@ -40,14 +40,14 @@ export function line(k) {
   const bc = breadcrumbs([{ label: 'Home', href: '/' }, { label: 'Gummies', href: '/live-rosin-gummies/' }, { label: L.name }]);
   const others = lineKeys.filter((x) => x !== k);
   const body = `
-${pageHero({ eyebrow: L.kicker, title: esc(L.title), crumbs: bc.html, lead: esc(L.lead), img: L.scene, imgAlt: '', stacks: list.slice(0, 3).map((f) => f.slug),
+${pageHero({ eyebrow: L.kicker, title: esc(L.title), crumbs: bc.html, lead: esc(L.lead), img: L.scene, imgPos: L.scenePos, imgAlt: '', product: tileFan(list.slice(0, 3)),
     cta: `<div class="btnrow"><a class="btn btn--sun" href="#lineup">See the flavors ${icon('arrow')}</a><a class="btn btn--glass" href="${u('/find-us/')}">${icon('pin')} Where to buy</a></div>` })}
 <section class="band band--sand" id="lineup" aria-label="${esc(L.name)} flavors">
   <div class="wrap">
     <div class="sec-head" data-reveal>${eyebrow('The lineup')}<h2 class="h2">${list.length} ${list.length === 1 ? 'flavor' : 'flavors'}, one fresh-pressed rosin</h2><p class="sec-lead">${esc(L.body)}</p></div>
     <div class="lrows">${list.map((f, i) => `
       <article class="lrow ${i % 2 ? 'lrow--flip' : ''}" style="--c:${f.color};--g:${f.glow}" data-reveal>
-        <div class="lrow__media">${gen(f.scene, { alt: f.sceneAlt, sizes: '(min-width: 1000px) 55vw, 92vw' })}<div class="lrow__cubes" data-parallax="-0.06">${cubes(f.slug, { alt: `A stack of ${f.name} gummy cubes`, cls: 'cubes cubes--pop' })}</div></div>
+        <div class="lrow__media${HAS_BAG.has(f.slug) ? ' lrow__media--bag' : ''}">${pack(f.slug, { alt: `${f.name} in the new Hashables packaging`, sizes: '(min-width: 1000px) 440px, 80vw', cls: 'lrow__pack' })}${HAS_BAG.has(f.slug) ? bag(f.slug, { alt: `The ${f.name} mylar bag`, sizes: '(min-width: 1000px) 330px, 56vw', cls: 'lrow__bag' }) : ''}</div>
         <div class="lrow__body">
           <p class="lrow__line">${esc(f.badge || L.short)}${f.awards.length ? ` · ${icon('trophy')} Award winner` : ''}</p>
           <h3 class="h3">${esc(f.name)}</h3>
@@ -65,8 +65,8 @@ ${trustStrip({ kicker: 'None of the filler', heading: 'All of the <span class="s
   ${sun('sun--cta')}${grid('grid-floor--cta')}
   <div class="wrap">
     <div class="sec-head sec-head--center" data-reveal>${eyebrow('Keep exploring')}<h2 id="ml-h" class="h2 h2--sun">More from <span class="script script--neon">the stack</span></h2></div>
-    <div class="lcards">${others.map((o) => `<a class="lcard glass" href="${u(lineUrl(o))}" data-tilt data-reveal><span class="lcard__cubes">${byLine(o).slice(0, 2).map((f) => cubes(f.slug, { cls: 'cubes' })).join('')}</span><span class="lcard__k">${esc(LINES[o].kicker)}</span><span class="lcard__n">${esc(LINES[o].name)}</span><span class="lcard__go">See flavors ${icon('arrow')}</span></a>`).join('')}
-    <a class="lcard glass" href="${u('/live-rosin-gummies/')}" data-tilt data-reveal><span class="lcard__cubes">${cubes('tropical-typhoon', { cls: 'cubes' })}${cubes('lemon-burst', { cls: 'cubes' })}</span><span class="lcard__k">Everything</span><span class="lcard__n">All gummies</span><span class="lcard__go">See all ${icon('arrow')}</span></a></div>
+    <div class="lcards">${others.map((o) => `<a class="lcard glass" href="${u(lineUrl(o))}" data-tilt data-reveal><span class="lcard__packs">${byLine(o).slice(0, 2).map((f) => pack(f.slug, { sizes: '110px', cls: 'lcard__pack' })).join('')}</span><span class="lcard__k">${esc(LINES[o].kicker)}</span><span class="lcard__n">${esc(LINES[o].name)}</span><span class="lcard__go">See flavors ${icon('arrow')}</span></a>`).join('')}
+    <a class="lcard glass" href="${u('/live-rosin-gummies/')}" data-tilt data-reveal><span class="lcard__packs">${pack('tropical-typhoon', { sizes: '110px', cls: 'lcard__pack' })}${pack('lemon-burst', { sizes: '110px', cls: 'lcard__pack' })}</span><span class="lcard__k">Everything</span><span class="lcard__n">All gummies</span><span class="lcard__go">See all ${icon('arrow')}</span></a></div>
   </div>
 </section>
 ${ctaBand()}
@@ -85,22 +85,22 @@ export function sku(f) {
     ['The feel', f.feel || 'Uplifting chill'],
     ['Extract', 'Solventless hash rosin (live rosin), fresh pressed'],
     ['Made from', 'Our own fresh frozen farm flower'],
+    ['Pack', '20 pieces per bag'],
     ['Potency', 'Printed on the state label of every pack'],
   ];
   const body = `
 <section class="pdp ${night ? 'pdp--night' : ''}" style="--c:${f.color};--g:${f.glow}" aria-labelledby="pdp-h" data-parallax-root>
   <div class="clip" aria-hidden="true">
-    <div class="pdp__bg" data-parallax="0.15">${gen(f.scene, { alt: '', sizes: '100vw', eager: true })}</div>
+    <div class="pdp__bg" data-parallax="0.15">${night ? pic('milkyway', { alt: '', sizes: '100vw', eager: true }) : `<img src="${u('/assets/img/brand/swirl-black-1920.webp')}" alt="" width="1920" height="1281" fetchpriority="high" decoding="async">`}</div>
     <div class="pdp__veil"></div>
     ${grid('grid-floor--hero')}
   </div>
   <div class="wrap pdp__in">
     ${bc.html}
     <div class="pdp__grid">
-      <div class="pdp__stage" aria-hidden="true">
+      <div class="pdp__stage" role="img" aria-label="${esc(f.name)} in the new Hashables packaging${HAS_BAG.has(f.slug) ? ', the tile art and the mylar bag' : ''}">
         <div class="pdp__halo"></div>
-        <div class="float float--pdp" data-parallax="-0.08">${cubes(f.slug, { cls: 'cubes cubes--hero', eager: true })}</div>
-        ${f.badge ? `<span class="sticker sticker--pdp">${esc(f.badge)}</span>` : ''}
+        <div class="pdp__art${HAS_BAG.has(f.slug) ? ' pdp__art--bag' : ''}" data-parallax="-0.06">${pack(f.slug, { alt: '', sizes: '(min-width: 980px) 460px, 76vw', cls: 'pdp__pack', eager: true })}${HAS_BAG.has(f.slug) ? bag(f.slug, { alt: '', sizes: '(min-width: 980px) 340px, 56vw', cls: 'pdp__bag', eager: true }) : ''}</div>
       </div>
       <div class="pdp__pane glass glass--strong" data-reveal>
         <p class="eyebrow">${esc(L.name)}${f.awards.length ? ` · ${icon('trophy')} Award winner` : ''}</p>
@@ -173,8 +173,8 @@ ${awards.length ? `<section class="band band--dusk pdp-awards" aria-labelledby="
 ${ctaBand({ title: `Find ${esc(f.name)} <span class="script script--neon">near you</span>`, text: 'Hashables are sold at licensed dispensaries. Use your location or a town name to find a shop, then check its live menu for this flavor.' })}
 `;
   return shell({ route: flavorUrl(f), title: `${f.name} Live Rosin Gummies`, description: `${f.name} by Hashables: ${f.tagline} ${f.notes}`.slice(0, 158).replace(/\s+\S*$/, '') + '…',
-    ogImage: `/assets/img/gen/${f.scene}-1600.webp`, body, bodyClass: night ? 'is-night' : '',
+    ogImage: `/assets/img/pack/${f.slug}-og.jpg`, body, bodyClass: night ? 'is-night' : '',
     schema: [bc.ld, { '@context': 'https://schema.org', '@type': 'Product', name: `${f.name} Live Rosin Gummies`, brand: { '@type': 'Brand', name: 'Hashables' },
-      description: f.notes, image: SITE.url + `/assets/img/cut/cubes-${f.slug}.webp`, category: 'Cannabis edibles',
+      description: f.notes, image: SITE.url + `/assets/img/pack/${f.slug}-680.webp`, category: 'Cannabis edibles',
       ...(awards.length ? { award: awards.map((a) => `${a.place}, ${a.title}`) } : {}) }] });
 }

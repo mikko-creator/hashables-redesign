@@ -1,5 +1,5 @@
 // parts.mjs - shared sections for the Hashables pages ("Paradise Grid": retro surf x synthwave x glass).
-import { esc, raw, u, gen, genUrl, cubes, icon, jsonld } from './html.mjs';
+import { esc, raw, u, pic, pack, bag, trio, HAS_BAG, icon, jsonld } from './html.mjs';
 import { SITE } from '../content/site.mjs';
 import { FLAVORS, LINES, AWARDS, flavorUrl, lineUrl, byLine } from '../content/flavors.mjs';
 
@@ -18,13 +18,18 @@ export function breadcrumbs(items) {
   return { html, ld };
 }
 
-/** inner-page hero: full-bleed photo (or night/sunset ground) + glass pane + optional protruding cube stacks */
-export function pageHero({ eyebrow: eb, title, lead = '', img, imgAlt = '', cta = '', crumbs = '', stacks = [], tone = 'dusk', scriptWord = '', align = 'left', short = false }) {
-  return `<section class="phero phero--${tone} ${short ? 'phero--short' : ''} phero--${align}" data-parallax-root>
+// heroes on the client's product photography skip the synthwave sun and grid, which would sit on the products
+const PRODUCT_PHOTOS = new Set(['lineup', 'peach-cactus', 'peach-pink', 'peach-tall', 'typhoon-tower', 'typhoon-kiwi', 'watermelon-pink', 'watermelon-green', 'flatlay', 'gummies', 'typhoon-gummies']);
+
+/** inner-page hero: full-bleed photo (or night/sunset ground) + glass pane + optional product art (the new packaging)
+    protruding from the bottom edge */
+export function pageHero({ eyebrow: eb, title, lead = '', img, imgAlt = '', imgPos = '', cta = '', crumbs = '', product = '', tone = 'dusk', scriptWord = '', align = 'left', short = false }) {
+  const photo = PRODUCT_PHOTOS.has(img);
+  return `<section class="phero phero--${tone} ${short ? 'phero--short' : ''} phero--${align}${photo ? ' phero--photo' : ''}" data-parallax-root>
   <div class="clip">
-    <div class="phero__media" data-parallax="0.18">${img ? gen(img, { alt: imgAlt, sizes: '100vw', eager: true, cls: 'phero__img' }) : ''}</div>
+    <div class="phero__media" data-parallax="0.18">${img ? pic(img, { alt: imgAlt, sizes: '100vw', eager: true, cls: 'phero__img', pos: imgPos }) : ''}</div>
     <div class="phero__veil" aria-hidden="true"></div>
-    ${sun('sun--hero')}${grid('grid-floor--hero')}
+    ${photo ? '' : sun('sun--hero') + grid('grid-floor--hero')}
   </div>
   <div class="phero__in wrap">
     ${crumbs}
@@ -35,7 +40,7 @@ export function pageHero({ eyebrow: eb, title, lead = '', img, imgAlt = '', cta 
       ${cta}
     </div>
   </div>
-  ${stacks.length ? `<div class="phero__stacks" aria-hidden="true">${stacks.map((s, i) => `<div class="float float--${i}" data-parallax="${(0.08 + i * 0.06).toFixed(2)}">${cubes(s, { cls: 'cubes cubes--float' })}</div>`).join('')}</div>` : ''}
+  ${product ? `<div class="phero__product" data-parallax="0.08">${product}</div>` : ''}
   ${wave('var(--sand)')}
 </section>`;
 }
@@ -44,9 +49,8 @@ export function flavorCard(f, { level = 'h3', big = false } = {}) {
   const L = LINES[f.line];
   return `<article class="fcard ${big ? 'fcard--big' : ''}" style="--c:${f.color};--g:${f.glow}" data-tilt>
   <a class="fcard__link" href="${u(flavorUrl(f))}" aria-label="${esc(f.name)}: view flavor"></a>
-  <div class="fcard__bg" aria-hidden="true">${gen(f.scene, { alt: '', sizes: '(min-width: 900px) 30vw, 90vw' })}</div>
+  <div class="fcard__media">${pack(f.slug, { alt: `${f.name} in the new Hashables packaging`, sizes: '(min-width: 1180px) 300px, (min-width: 720px) 42vw, 86vw', cls: 'fcard__pack' })}</div>
   <div class="fcard__glow" aria-hidden="true"></div>
-  ${cubes(f.slug, { alt: `A stack of ${f.name} Hashables gummy cubes`, cls: 'cubes fcard__cubes' })}
   <div class="fcard__body">
     <p class="fcard__line">${esc(f.badge || L.short)}</p>
     <${level} class="fcard__name">${esc(f.name)}</${level}>
@@ -56,13 +60,13 @@ export function flavorCard(f, { level = 'h3', big = false } = {}) {
 </article>`;
 }
 
-export function flavorTabs({ id = 'flavors', heading = 'Stacks on stacks <span class="script script--neon">of flavor</span>', lead = '' } = {}) {
+export function flavorTabs({ id = 'flavors', kicker = 'The flavors', heading = 'Stacks on stacks <span class="script script--neon">of flavor</span>', lead = '' } = {}) {
   const tabs = [['core', 'Core'], ['specialty', 'Specialty'], ['limited', 'Limited']];
   return `<section class="band band--swirl stack-sec" id="${id}" aria-labelledby="${id}-h">
   <div class="band__bg" aria-hidden="true"><img src="${u('/assets/img/brand/swirl-black-1920.webp')}" alt="" loading="lazy" width="1920" height="1281"></div>
   <div class="wrap">
     <div class="sec-head sec-head--center" data-reveal>
-      ${eyebrow('The flavors')}
+      ${eyebrow(kicker)}
       <h2 id="${id}-h" class="h2 h2--sun">${heading}</h2>
       ${lead ? `<p class="sec-lead">${raw(lead)}</p>` : ''}
     </div>
@@ -100,7 +104,7 @@ export const STEPS = [
   { n: '01', title: 'Farm flower', text: 'It starts on our farms, with fresh flower from our own harvests.', img: 's-bud', alt: 'Close-up of a frosty cannabis flower on the plant' },
   { n: '02', title: 'Fresh frozen', text: 'Instead of drying and curing, the flower is frozen fresh to hold on to its terpenes and character.', img: 's-frozen', alt: 'Freshly harvested cannabis flowers on crushed ice' },
   { n: '03', title: 'Pressed into live rosin', text: 'Ice water separates the resin, then gentle heat and pressure turn it into solventless hash rosin.', img: 's-rosin', alt: 'A small mound of freshly pressed hash rosin on parchment' },
-  { n: '04', title: 'Stacked into flavor', text: 'Full-spectrum rosin meets flavor in a sugar-dusted cube. Stacks on stacks of it.', cube: 'tropical-typhoon', alt: 'A stack of Tropical Typhoon gummy cubes' },
+  { n: '04', title: 'Stacked into flavor', text: 'Full-spectrum rosin meets flavor in a sugar-dusted cube. Stacks on stacks of it.', img: 'typhoon-gummies', alt: 'Blue Tropical Typhoon gummies on a mirror under a paper umbrella' },
 ];
 export function processSteps({ heading = 'From our farm to <span class="script script--ink">fresh pressed</span>', id = 'process' } = {}) {
   return `<section class="band band--sand process" id="${id}" aria-labelledby="${id}-h">
@@ -108,7 +112,7 @@ export function processSteps({ heading = 'From our farm to <span class="script s
     <div class="sec-head" data-reveal>${eyebrow('How Hashables are made')}<h2 id="${id}-h" class="h2">${heading}</h2>
       <p class="sec-lead">Plenty of gummies start with distillate. Ours start with flower from our own farms, frozen fresh and pressed into solventless live rosin. That’s why Hashables taste like real flower, not just sugar.</p></div>
     <ol class="steps">${STEPS.map((s, i) => `<li class="step" data-reveal style="--d:${i * 90}ms">
-      <div class="step__media">${s.img ? gen(s.img, { alt: s.alt, sizes: '(min-width: 1000px) 24vw, (min-width: 640px) 45vw, 90vw' }) : `<div class="step__cube">${cubes(s.cube, { alt: s.alt })}</div>`}</div>
+      <div class="step__media">${pic(s.img, { alt: s.alt, sizes: '(min-width: 1000px) 24vw, (min-width: 640px) 45vw, 90vw' })}</div>
       <span class="step__n">${s.n}</span><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></li>`).join('')}</ol>
   </div>
 </section>`;
@@ -189,7 +193,7 @@ export function blogCards(articles, { heading = 'Fresh from <span class="script 
 export function postCard(a, i = 0) {
   return `<article class="post" data-reveal style="--d:${i * 80}ms" data-tilt>
   <a class="post__link" href="${u('/blog/' + a.slug + '/')}" aria-label="${esc(a.title)}"></a>
-  <div class="post__img">${gen(a.heroImage, { alt: '', sizes: '(min-width: 900px) 30vw, 90vw' })}</div>
+  <div class="post__img">${pic(a.heroImage, { alt: '', sizes: '(min-width: 900px) 30vw, 90vw' })}</div>
   <div class="post__body"><p class="post__cat">${esc(a.category)} · ${a.readMinutes} min read</p><h3>${esc(a.title)}</h3><p>${esc(a.dek)}</p><span class="post__go">Read ${icon('arrow')}</span></div>
 </article>`;
 }
@@ -201,4 +205,7 @@ export function ctaBand({ title = 'Find Hashables <span class="script script--ne
 </section>`;
 }
 
-export { jsonld, gen, genUrl, cubes, icon, esc, raw, u };
+/** two or three packaging tiles fanned out, for a line's hero */
+export const tileFan = (flavors) => `<div class="tilefan tilefan--${flavors.length}">${flavors.map((f) => pack(f.slug, { alt: `${f.name} packaging`, sizes: '(min-width: 900px) 240px, 34vw', cls: 'tilefan__t', eager: true })).join('')}</div>`;
+
+export { jsonld, pic, pack, bag, trio, HAS_BAG, icon, esc, raw, u };

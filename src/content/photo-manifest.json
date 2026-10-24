@@ -1,0 +1,507 @@
+{
+ "note": "The client's own photography and brand art from the HSH27 brand folder (tools/brand-assets.py). The jar photos show the earlier jar packaging.",
+ "pack": {
+  "tile": [
+   [
+    680,
+    680
+   ],
+   [
+    340,
+    340
+   ],
+   [
+    160,
+    160
+   ]
+  ],
+  "bag": [
+   [
+    900,
+    671
+   ],
+   [
+    480,
+    358
+   ]
+  ],
+  "trio": [
+   [
+    1356,
+    822
+   ],
+   [
+    760,
+    461
+   ]
+  ]
+ },
+ "photos": {
+  "lineup": {
+   "src": "assets/source/hsh27/5_Historical_Photos/Copy of Copy of 0Q4A6298.jpg",
+   "w": 5081,
+   "h": 4295,
+   "alt": "Hashables Tropical Typhoon, Watermelon Jolt and Peachy Mango jars stacked with pineapple, kiwi, watermelon, peach, dragon fruit and loose gummies on pink and aqua",
+   "sizes": [
+    [
+     2400,
+     2029,
+     489520
+    ],
+    [
+     1600,
+     1352,
+     247924
+    ],
+    [
+     960,
+     811,
+     106930
+    ],
+    [
+     640,
+     541,
+     54732
+    ]
+   ]
+  },
+  "peach-cactus": {
+   "src": "assets/source/hsh27/5_Historical_Photos/Copy of Copy of 0Q4A6195.jpg",
+   "w": 6467,
+   "h": 4311,
+   "alt": "Peachy Mango jars beside a potted cactus, a peach, a cut mango and orange gummies on a pink set",
+   "sizes": [
+    [
+     2400,
+     1600,
+     226358
+    ],
+    [
+     1600,
+     1067,
+     108930
+    ],
+    [
+     960,
+     640,
+     45534
+    ],
+    [
+     640,
+     427,
+     22750
+    ]
+   ]
+  },
+  "peach-pink": {
+   "src": "assets/source/hsh27/5_Historical_Photos/Copy of Copy of 0Q4A6187.jpg",
+   "w": 6091,
+   "h": 4188,
+   "alt": "A stack of Peachy Mango jars with mangoes, a peach and orange gummies on a pink set",
+   "sizes": [
+    [
+     2400,
+     1650,
+     219074
+    ],
+    [
+     1600,
+     1100,
+     96876
+    ],
+    [
+     960,
+     660,
+     42432
+    ],
+    [
+     640,
+     440,
+     22362
+    ]
+   ]
+  },
+  "peach-tall": {
+   "src": "assets/source/hsh27/5_Historical_Photos/Copy of Copy of 0Q4A6212.jpg",
+   "w": 4260,
+   "h": 5773,
+   "alt": "Peachy Mango jars, a cactus and cut mango on a pink set",
+   "sizes": [
+    [
+     2400,
+     3252,
+     629206
+    ],
+    [
+     1600,
+     2168,
+     254748
+    ],
+    [
+     960,
+     1301,
+     101994
+    ],
+    [
+     640,
+     867,
+     50896
+    ]
+   ]
+  },
+  "typhoon-tower": {
+   "src": "assets/source/hsh27/5_Historical_Photos/Copy of 0Q4A5989.jpg",
+   "w": 4480,
+   "h": 6720,
+   "alt": "A tower of Tropical Typhoon jars beside a pineapple on an aqua set, blue gummies at the base",
+   "sizes": [
+    [
+     2400,
+     3600,
+     799062
+    ],
+    [
+     1600,
+     2400,
+     341964
+    ],
+    [
+     960,
+     1440,
+     149506
+    ],
+    [
+     640,
+     960,
+     80266
+    ]
+   ]
+  },
+  "typhoon-kiwi": {
+   "src": "assets/source/hsh27/5_Historical_Photos/Copy of 0Q4A6240.jpg",
+   "w": 1747,
+   "h": 2048,
+   "alt": "Tropical Typhoon jars with kiwi and pineapple on an aqua set",
+   "sizes": [
+    [
+     1747,
+     2048,
+     204592
+    ],
+    [
+     1600,
+     1876,
+     167016
+    ],
+    [
+     960,
+     1125,
+     69776
+    ],
+    [
+     640,
+     750,
+     35072
+    ]
+   ]
+  },
+  "watermelon-pink": {
+   "src": "assets/source/hsh27/5_Historical_Photos/Copy of IMG_8496.JPG",
+   "w": 2367,
+   "h": 1536,
+   "alt": "Watermelon Jolt jars stacked on watermelon slices beside a cactus, pink gummies in front",
+   "sizes": [
+    [
+     2367,
+     1536,
+     168850
+    ],
+    [
+     1600,
+     1038,
+     91586
+    ],
+    [
+     960,
+     623,
+     43086
+    ],
+    [
+     640,
+     415,
+     23108
+    ]
+   ]
+  },
+  "watermelon-green": {
+   "src": "assets/source/hsh27/5_Historical_Photos/Copy of IMG_8502.JPG",
+   "w": 2422,
+   "h": 1536,
+   "alt": "Watermelon Jolt jars with watermelon wedges and a cup of pink gummies on a green set",
+   "sizes": [
+    [
+     2400,
+     1522,
+     178910
+    ],
+    [
+     1600,
+     1015,
+     91154
+    ],
+    [
+     960,
+     609,
+     43710
+    ],
+    [
+     640,
+     406,
+     23948
+    ]
+   ]
+  },
+  "flatlay": {
+   "src": "assets/source/hsh27/5_Historical_Photos/Copy of Hashables-Flavors.jpeg",
+   "w": 1650,
+   "h": 2049,
+   "alt": "Hashables jars from above among kiwi, dragon fruit, mango and gummies",
+   "sizes": [
+    [
+     1650,
+     2049,
+     430428
+    ],
+    [
+     1600,
+     1987,
+     395326
+    ],
+    [
+     960,
+     1192,
+     183102
+    ],
+    [
+     640,
+     795,
+     97078
+    ]
+   ]
+  },
+  "gummies": {
+   "src": "assets/source/hsh27/5_Historical_Photos/gummies-slider.jpg",
+   "w": 1300,
+   "h": 875,
+   "alt": "A stack of colourful Hashables gummies among watermelon, kiwi, peach, mango and pineapple",
+   "sizes": [
+    [
+     1300,
+     875,
+     94176
+    ],
+    [
+     960,
+     646,
+     63718
+    ],
+    [
+     640,
+     431,
+     36108
+    ]
+   ]
+  },
+  "typhoon-gummies": {
+   "src": "assets/source/hsh27/5_Historical_Photos/HASH-TROPICAL-TYPHOON-GUMMIES.jpg",
+   "w": 1000,
+   "h": 1000,
+   "alt": "Blue Tropical Typhoon gummies on a mirror under a paper umbrella",
+   "sizes": [
+    [
+     1000,
+     1000,
+     78350
+    ],
+    [
+     960,
+     960,
+     73682
+    ],
+    [
+     640,
+     640,
+     41698
+    ]
+   ]
+  },
+  "surfer": {
+   "src": "assets/source/hsh27/2_Key_Elements/3_Background_Images/Surfer_Desk.png",
+   "w": 4588,
+   "h": 3347,
+   "alt": "",
+   "sizes": [
+    [
+     2400,
+     1751,
+     154564
+    ],
+    [
+     1600,
+     1167,
+     78900
+    ],
+    [
+     960,
+     700,
+     31162
+    ],
+    [
+     640,
+     467,
+     14874
+    ]
+   ]
+  },
+  "surfer-sunset": {
+   "src": "assets/source/hsh27/2_Key_Elements/3_Background_Images/Surfer_Original.jpeg",
+   "w": 5616,
+   "h": 3744,
+   "alt": "",
+   "sizes": [
+    [
+     2400,
+     1600,
+     393790
+    ],
+    [
+     1600,
+     1067,
+     206872
+    ],
+    [
+     960,
+     640,
+     85834
+    ],
+    [
+     640,
+     427,
+     40264
+    ]
+   ]
+  },
+  "milkyway": {
+   "src": "assets/source/hsh27/2_Key_Elements/3_Background_Images/Sleep_MilkyWay_Fade.tif",
+   "w": 4928,
+   "h": 1837,
+   "alt": "",
+   "sizes": [
+    [
+     2400,
+     895,
+     399146
+    ],
+    [
+     1600,
+     596,
+     187908
+    ],
+    [
+     960,
+     358,
+     70042
+    ],
+    [
+     640,
+     239,
+     29978
+    ]
+   ]
+  },
+  "palms-pink-inv": {
+   "src": "assets/source/hsh27/2_Key_Elements/3_Background_Images/Palms_Pink_Inverted.png",
+   "w": 1672,
+   "h": 941,
+   "alt": "",
+   "sizes": [
+    [
+     1672,
+     941,
+     126366
+    ],
+    [
+     1600,
+     900,
+     117896
+    ],
+    [
+     960,
+     540,
+     53768
+    ],
+    [
+     640,
+     360,
+     25478
+    ]
+   ]
+  },
+  "palms-yellow": {
+   "src": "assets/source/hsh27/2_Key_Elements/3_Background_Images/Palms_Yellow_Desk.png",
+   "w": 2440,
+   "h": 1401,
+   "alt": "",
+   "sizes": [
+    [
+     2400,
+     1378,
+     41374
+    ],
+    [
+     1600,
+     919,
+     20604
+    ],
+    [
+     960,
+     551,
+     8520
+    ],
+    [
+     640,
+     367,
+     3640
+    ]
+   ]
+  },
+  "spectrum": {
+   "src": "assets/source/hsh27/2_Key_Elements/3_Background_Images/Gradient_FullSpectrum.jpg",
+   "w": 2000,
+   "h": 960,
+   "alt": "",
+   "sizes": [
+    [
+     2000,
+     960,
+     15812
+    ],
+    [
+     1600,
+     768,
+     10650
+    ],
+    [
+     960,
+     461,
+     5332
+    ],
+    [
+     640,
+     307,
+     3104
+    ]
+   ]
+  }
+ }
+}

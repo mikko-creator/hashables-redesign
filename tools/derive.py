@@ -12,19 +12,13 @@ GEN = os.path.join(ROOT, 'src', 'assets', 'img', 'gen')
 BRAND = os.path.join(ROOT, 'src', 'assets', 'img', 'brand')
 os.makedirs(GEN, exist_ok=True); os.makedirs(BRAND, exist_ok=True)
 
-WIDE = [2400, 1600, 960]
 SMALL = [1600, 960, 640]
+# revision 6: only the three process stills are still generated imagery; the rest of the site uses the client's own
+# photography and packaging art (tools/brand-assets.py)
 jobs = {
-    's-hero': ('assets/generated/s-hero.jpg', WIDE), 's-wave': ('assets/generated/s-wave.jpg', WIDE),
-    's-night': ('assets/generated/s-night.jpg', WIDE),
     's-bud': ('assets/generated/s-bud.jpg', SMALL), 's-frozen': ('assets/generated/s-frozen.jpg', SMALL),
     's-rosin': ('assets/generated/s-rosin.jpg', SMALL),
-    'h-coast': ('tmp/hf/H-COAST.img', [2048, 1600, 960]), 'h-boards': ('tmp/hf/H-BOARDS.img', [2048, 1600, 960]),
-    'h-towel': ('tmp/hf/H-TOWEL.img', [2048, 1600, 960]),
 }
-for f in ['tropical-typhoon', 'bangin-berry', 'watermelon-jolt', 'peachy-mango', 'electric-grape', 'lemon-burst',
-          'prickly-pear', 'blue-raspberry', 'remberry']:
-    jobs['f-' + f] = ('assets/generated/f-' + f + '.jpg', [2400, 1600, 960, 640])
 
 manifest = {}
 for key, (src, widths) in jobs.items():

@@ -1,5 +1,5 @@
 // layout.mjs - the page shell: <head>, icon sprite, age gate, header, menu drawer, footer.
-import { esc, u, icon, cubes, gen, jsonld } from './html.mjs';
+import { esc, u, icon, jsonld, pack, trio } from './html.mjs';
 import { SITE, NAV_L, NAV_R, DRAWER_LINKS, FOOTER } from '../content/site.mjs';
 import { FLAVORS, LINES, flavorUrl, lineUrl } from '../content/flavors.mjs';
 
@@ -55,7 +55,7 @@ export function logo(cls = 'logo') {
   return `<svg class="${cls}" viewBox="${VIEWBOX}" role="img" aria-label="Hashables" focusable="false"><use href="#hsh-logo"></use></svg>`;
 }
 
-const thumb = (f) => `<a class="dr-flavor" href="${u(flavorUrl(f))}" style="--c:${f.color}">${cubes(f.slug, { cls: 'dr-flavor__img', sm: true })}<span>${esc(f.name)}${f.badge ? `<small>${esc(f.badge)}</small>` : ''}</span></a>`;
+const thumb = (f) => `<a class="dr-flavor" href="${u(flavorUrl(f))}" style="--c:${f.color}">${pack(f.slug, { cls: 'dr-flavor__img', sizes: '64px' })}<span>${esc(f.name)}${f.badge ? `<small>${esc(f.badge)}</small>` : ''}</span></a>`;
 const LINE_KEYS = ['core', 'specialty', 'limited'];
 
 // desktop nav: a plain link, a dropdown (Learn, About) or the Gummies mega menu. Triggers are disclosure buttons;
@@ -67,7 +67,7 @@ function megaGummies(id) {
         <div class="mm__flavors">${FLAVORS.filter((f) => f.line === l).map(thumb).join('')}</div>
       </div>`).join('')}
       <div class="mm__col mm__col--promo">
-        <a class="mm__promo" href="${u('/live-rosin-gummies/')}">${gen('s-hero', { alt: '', sizes: '320px', cls: 'mm__promo-img' })}<span class="mm__promo-body"><span class="mm__k">All gummies</span><span class="mm__promo-h">Stacks on stacks <span class="script script--neon">of flavor</span></span><span class="mm__promo-go">Shop the lineup ${icon('arrow')}</span></span></a>
+        <a class="mm__promo" href="${u('/live-rosin-gummies/')}">${trio({ alt: '', sizes: '300px', cls: 'mm__promo-img' })}<span class="mm__promo-body"><span class="mm__k">All gummies</span><span class="mm__promo-h">Stacks on stacks <span class="script script--neon">of flavor</span></span><span class="mm__promo-go">Shop the lineup ${icon('arrow')}</span></span></a>
         <a class="mm__find" href="${u('/find-us/')}">${icon('pin')} Find a stack near you</a>
       </div>
     </div></div>`;
@@ -164,7 +164,7 @@ export function ageGate() {
 </div>`;
 }
 
-export function shell({ route, title, description, body, ogImage = '/assets/img/gen/s-hero-1600.webp', schema = [], bodyClass = '', head = '' }) {
+export function shell({ route, title, description, body, ogImage = '/assets/img/photo/og-share.jpg', schema = [], bodyClass = '', head = '' }) {
   const fullTitle = title ? `${title} | Hashables` : 'Hashables | Fresh-Pressed Hash Rosin Gummies';
   const canonical = SITE.url + (route === '/404.html' ? '/' : route);
   return `<!doctype html>

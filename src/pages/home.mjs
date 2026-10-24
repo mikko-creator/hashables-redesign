@@ -2,7 +2,7 @@
 // how it's made (process + video), proof (awards), store finder, apparel, then FAQ + blog teasers (added: the client's
 // must-haves are an FAQ and content written for search).
 import { shell } from '../lib/layout.mjs';
-import { esc, raw, u, gen, cubes, icon } from '../lib/html.mjs';
+import { esc, raw, u, pic, pack, trio, icon } from '../lib/html.mjs';
 import { wave, sun, grid, eyebrow, trustStrip, flavorTabs, processSteps, videoBlock, awardsBand, finderBand, faqMini, blogCards } from '../lib/parts.mjs';
 import { SITE } from '../content/site.mjs';
 import { FLAVORS, LINES, flavorUrl, lineUrl } from '../content/flavors.mjs';
@@ -29,10 +29,7 @@ export function home({ faq, blog, pickFaq }) {
       <ul class="hero__chips" aria-label="Highlights"><li>${icon('drop')} Solventless</li><li>${icon('press')} Live rosin</li><li>${icon('trophy')} Award-winning</li></ul>
     </div>
   </div>
-  <div class="hero__stacks" aria-hidden="true">
-    <div class="float float--h0" data-parallax="0.10">${cubes('tropical-typhoon', { cls: 'cubes cubes--float', eager: true })}</div>
-    <div class="float float--h1" data-parallax="0.18">${cubes('prickly-pear', { cls: 'cubes cubes--float', eager: true })}</div>
-  </div>
+  <div class="hero__product" data-parallax="0.1">${trio({ eager: true, sizes: '(min-width: 1100px) 540px, (min-width: 720px) 46vw, 84vw' })}</div>
   <button type="button" class="vidctl" data-video-toggle aria-label="Pause the background video" aria-pressed="false">${icon('pause')}</button>
   ${wave('var(--sand)')}
 </section>
@@ -41,7 +38,7 @@ ${trustStrip()}
 
 <section class="feature" style="--c:${pp.color};--g:${pp.glow}" aria-labelledby="feat-h">
   <div class="clip" aria-hidden="true">
-    <div class="feature__bg" data-parallax="0.12">${gen(pp.scene, { alt: '', sizes: '100vw' })}</div>
+    <div class="feature__bg" data-parallax="0.12">${pic('palms-pink-inv', { alt: '', sizes: '100vw' })}</div>
     <div class="feature__veil"></div>
   </div>
   ${wave('var(--sand)', true, 'seam--top')}
@@ -56,18 +53,16 @@ ${trustStrip()}
       <ul class="pairs">${pp.pairs.map((p) => `<li>${icon('sun')} ${esc(p)}</li>`).join('')}</ul>
       <div class="btnrow"><a class="btn btn--sun" href="${u(flavorUrl(pp))}">Explore the flavor ${icon('arrow')}</a><a class="btn btn--glass" href="${u(lineUrl('limited'))}">All limited editions</a></div>
     </div>
+    <a class="feature__pack" href="${u(flavorUrl(pp))}" data-reveal data-tilt>${pack(pp.slug, { alt: `${pp.name}, limited edition, in the new Hashables packaging`, sizes: '(min-width: 980px) 420px, 74vw' })}</a>
   </div>
 </section>
 
-${flavorTabs({ lead: 'Five year-round core flavors, two specialties and a couple of limited runs. Every one of them pressed from the same fresh live rosin.' })}
+${flavorTabs({ kicker: 'New look. Same feels.', lead: 'Our legendary, fresh-pressed hash gummies now come in space-saving mylar bags: five year-round core flavors, two specialties and a couple of limited runs, twenty 5 mg THC pieces to a bag. Every one is pressed from the same fresh live rosin.' })}
 
 ${processSteps()}
 
 <section class="chill" aria-labelledby="chill-h">
-  <div class="chill__media" aria-hidden="true">
-    <img src="${u('/assets/media/wave-poster.webp')}" alt="" width="1920" height="1074" loading="lazy">
-    <video muted loop playsinline preload="none" poster="${u('/assets/media/wave-poster.webp')}" data-bgvideo data-src-sm="${u('/assets/media/wave.mp4')}" data-src-lg="${u('/assets/media/wave.mp4')}"></video>
-  </div>
+  <div class="chill__media" aria-hidden="true">${pic('surfer', { alt: '', sizes: '100vw', pos: '50% 64%' })}</div>
   <div class="chill__veil" aria-hidden="true"></div>
   ${wave('var(--sand)', true, 'seam--top')}
   <div class="wrap chill__in">
@@ -88,7 +83,7 @@ ${finderBand()}
 
 <section class="band band--sand gear" aria-labelledby="gear-h">
   <div class="wrap gear__in">
-    <div class="gear__media" data-reveal>${gen('h-boards', { alt: 'Three vintage longboards in faded aqua, coral and yellow standing in the sand before a grassy dune', sizes: '(min-width: 900px) 50vw, 92vw' })}<span class="sticker sticker--sun">Stay<br>salty</span></div>
+    <div class="gear__media" data-reveal>${pic('palms-yellow', { alt: 'Hashables yellow palm-tree art', sizes: '(min-width: 900px) 50vw, 92vw' })}<span class="sticker sticker--sun">Stay<br>salty</span></div>
     <div class="gear__body" data-reveal>
       ${eyebrow('Gear')}
       <h2 id="gear-h" class="h2">Rep the <span class="script script--ink">vibe</span></h2>

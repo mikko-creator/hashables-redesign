@@ -1,5 +1,5 @@
 {
-  "note": "Hashables redesign pitch - generated industry imagery (fal flux-pro ultra). Illustrative only: no stand-in for a real Hashables or Nova Farms farm, product, person or result. House rules: no people, hands or faces; no text, logos or marks; no candy, gummies, alcohol, party or nightlife cues. Product images on the site are the client's own photos (assets/source).",
+  "note": "Hashables redesign pitch - generated industry imagery (fal flux-pro ultra). Illustrative only: no stand-in for a real Hashables or Nova Farms farm, product, person or result. House rules: no people, hands or faces; no text, logos or marks; no candy, gummies, alcohol, party or nightlife cues. Product images on the site are the client's own photos (assets/source). Revision 6: only S-BUD, S-FROZEN and S-ROSIN are still on the site; the other entries are retired and marked optional, so a re-run never pays for them.",
   "defaults": {
     "model": "fal-ai/flux-pro/v1.1-ultra",
     "style": "sun-washed retro summer photograph, 1970s film look, warm highlights, gentle film grain, crisp focus, natural colour, no people, no hands, no faces, no text, no lettering, no labels, no logos, no signage, all surfaces blank and unmarked",
@@ -21,13 +21,17 @@
       "id": "S-HERO",
       "role": "gummies hub and awards heroes, menu promo card, share image (it was the source still of the V-HERO loop, the home hero before the beach film)",
       "alt": "A tropical beach at sunset, palm silhouettes framing a huge low sun over long glassy waves under a pink and tangerine sky",
-      "prompt": "wide tropical beach at sunset, an enormous soft glowing sun sitting low on the ocean horizon in the centre, the sky graded from hot magenta pink at the top through coral and tangerine to pale gold at the horizon, tall coconut palm silhouettes leaning in from the far left and far right edges, long gentle glassy waves rolling toward shore with pink and gold reflections, a thin sheet of wet sand in the foreground mirroring the sky, the middle of the frame open and calm, cinematic wide-angle composition"
+      "prompt": "wide tropical beach at sunset, an enormous soft glowing sun sitting low on the ocean horizon in the centre, the sky graded from hot magenta pink at the top through coral and tangerine to pale gold at the horizon, tall coconut palm silhouettes leaning in from the far left and far right edges, long gentle glassy waves rolling toward shore with pink and gold reflections, a thin sheet of wet sand in the foreground mirroring the sky, the middle of the frame open and calm, cinematic wide-angle composition",
+      "optional": true,
+      "retired": "revision 6 (2026-10-25): replaced by the client's own photography and packaging art"
     },
     {
       "id": "S-WAVE",
       "role": "uplifting-chill band and process background; source still of the V-WAVE loop",
       "alt": "A turquoise ocean wave curling over, its lip glowing translucent teal against a low golden sun",
-      "prompt": "a clean turquoise ocean wave curling and peeling to the right, shot low from the water at wave level, the wave lip backlit by a low golden sun so the water glows translucent aqua and teal, fine golden spray drifting off the crest, soft pink sky above, empty water with no surfers, no boats"
+      "prompt": "a clean turquoise ocean wave curling and peeling to the right, shot low from the water at wave level, the wave lip backlit by a low golden sun so the water glows translucent aqua and teal, fine golden spray drifting off the crest, soft pink sky above, empty water with no surfers, no boats",
+      "optional": true,
+      "retired": "revision 6 (2026-10-25): replaced by the client's own photography and packaging art"
     },
     {
       "id": "S-BUD",
@@ -51,62 +55,82 @@
       "id": "S-NIGHT",
       "role": "sleep and specialty backgrounds",
       "alt": "A calm tropical beach at night, a full moon laying a silver path across gently lapping water between palm silhouettes",
-      "prompt": "a calm tropical beach at night under a deep indigo and violet sky, a bright full moon low over the sea laying a long silver path across gently lapping water, palm silhouettes on both edges, soft blue moonlight on pale sand, a few faint stars, peaceful and still"
+      "prompt": "a calm tropical beach at night under a deep indigo and violet sky, a bright full moon low over the sea laying a long silver path across gently lapping water, palm silhouettes on both edges, soft blue moonlight on pale sand, a few faint stars, peaceful and still",
+      "optional": true,
+      "retired": "revision 6 (2026-10-25): replaced by the client's own photography and packaging art"
     },
     {
       "id": "F-TROPICAL-TYPHOON",
       "role": "Tropical Typhoon flavor page and card art",
       "alt": "Halved pineapple, passion fruit and mango on a weathered turquoise beach table, storm clouds breaking into sunlight over the sea",
-      "prompt": "still life of a halved ripe pineapple, cut passion fruits and a sliced mango on a weathered turquoise painted wooden beach table, palm frond shadows across the table, behind it a dramatic tropical sky over the sea with dark storm clouds breaking open to bright sunlight, wind in the palms"
+      "prompt": "still life of a halved ripe pineapple, cut passion fruits and a sliced mango on a weathered turquoise painted wooden beach table, palm frond shadows across the table, behind it a dramatic tropical sky over the sea with dark storm clouds breaking open to bright sunlight, wind in the palms",
+      "optional": true,
+      "retired": "revision 6 (2026-10-25): replaced by the client's own photography and packaging art"
     },
     {
       "id": "F-BANGIN-BERRY",
       "role": "Bangin' Berry flavor page and card art",
       "alt": "Ripe raspberries, blackberries and strawberries in a white enamel bowl on a pink-painted beach shack table in bright sun",
-      "prompt": "a heap of ripe raspberries, blackberries and halved strawberries in a white enamel bowl on a coral pink painted wooden table of a beach shack, a few berries scattered, bright midday sun with crisp palm leaf shadows, turquoise sea softly out of focus behind"
+      "prompt": "a heap of ripe raspberries, blackberries and halved strawberries in a white enamel bowl on a coral pink painted wooden table of a beach shack, a few berries scattered, bright midday sun with crisp palm leaf shadows, turquoise sea softly out of focus behind",
+      "optional": true,
+      "retired": "revision 6 (2026-10-25): replaced by the client's own photography and packaging art"
     },
     {
       "id": "F-WATERMELON-JOLT",
       "role": "Watermelon Jolt flavor page and card art",
       "alt": "Thick wedges of fresh watermelon with water droplets on a striped beach towel in hard summer sun",
-      "prompt": "thick wedges of fresh red watermelon with glistening water droplets arranged on a sun-faded striped beach towel in aqua, pink and cream bands laid on fine sand, hard summer sun casting crisp shadows, overhead three-quarter view"
+      "prompt": "thick wedges of fresh red watermelon with glistening water droplets arranged on a sun-faded striped beach towel in aqua, pink and cream bands laid on fine sand, hard summer sun casting crisp shadows, overhead three-quarter view",
+      "optional": true,
+      "retired": "revision 6 (2026-10-25): replaced by the client's own photography and packaging art"
     },
     {
       "id": "F-PEACHY-MANGO",
       "role": "Peachy Mango flavor page and card art",
       "alt": "Ripe peaches and mangoes, one sliced open, on a sun-bleached board by the sea at golden hour",
-      "prompt": "ripe blushing peaches and golden mangoes, one mango sliced into a cubed hedgehog and one peach halved showing its stone, on a sun-bleached driftwood board on a seaside wall at golden hour, warm orange light, the ocean glittering softly behind"
+      "prompt": "ripe blushing peaches and golden mangoes, one mango sliced into a cubed hedgehog and one peach halved showing its stone, on a sun-bleached driftwood board on a seaside wall at golden hour, warm orange light, the ocean glittering softly behind",
+      "optional": true,
+      "retired": "revision 6 (2026-10-25): replaced by the client's own photography and packaging art"
     },
     {
       "id": "F-ELECTRIC-GRAPE",
       "role": "Electric Grape flavor page and card art",
       "alt": "Dewy bunches of dark purple grapes on dark slate under a violet dusk sky with distant lightning over the sea",
-      "prompt": "dewy bunches of dark purple concord grapes on a dark wet slate surface at the edge of a beach, a violet and magenta dusk sky over the sea behind with a thin fork of distant lightning on the horizon, cool rim light on the grapes, moody and electric"
+      "prompt": "dewy bunches of dark purple concord grapes on a dark wet slate surface at the edge of a beach, a violet and magenta dusk sky over the sea behind with a thin fork of distant lightning on the horizon, cool rim light on the grapes, moody and electric",
+      "optional": true,
+      "retired": "revision 6 (2026-10-25): replaced by the client's own photography and packaging art"
     },
     {
       "id": "F-LEMON-BURST",
       "role": "Lemon Burst flavor page and card art",
       "alt": "Fresh lemons, some halved and splashing juice, on sunny yellow tiles with palm shadows",
-      "prompt": "fresh lemons with leaves, two halved lemons with a burst of juice droplets splashing in mid-air, on sunny pale yellow ceramic tiles beside a pool, hard bright summer sunlight and crisp palm frond shadows, high-speed photograph"
+      "prompt": "fresh lemons with leaves, two halved lemons with a burst of juice droplets splashing in mid-air, on sunny pale yellow ceramic tiles beside a pool, hard bright summer sunlight and crisp palm frond shadows, high-speed photograph",
+      "optional": true,
+      "retired": "revision 6 (2026-10-25): replaced by the client's own photography and packaging art"
     },
     {
       "id": "F-PRICKLY-PEAR",
       "role": "Prickly Pear flavor page and card art",
       "alt": "Ripe magenta prickly pear fruits, one halved to show its jewel-pink flesh, beside a cactus pad on warm sand",
-      "prompt": "ripe magenta prickly pear cactus fruits, one cut in half showing the glossy jewel pink flesh and tiny seeds, beside a green paddle of nopal cactus, on warm pale sand in strong desert-coast sunlight, turquoise sea and sky softly blurred behind"
+      "prompt": "ripe magenta prickly pear cactus fruits, one cut in half showing the glossy jewel pink flesh and tiny seeds, beside a green paddle of nopal cactus, on warm pale sand in strong desert-coast sunlight, turquoise sea and sky softly blurred behind",
+      "optional": true,
+      "retired": "revision 6 (2026-10-25): replaced by the client's own photography and packaging art"
     },
     {
       "id": "F-BLUE-RASPBERRY",
       "role": "Blue Raspberry (sugar-free) flavor page and card art",
       "alt": "Blueberries and raspberries over crushed ice in an aqua glass bowl at the edge of a sunlit pool",
-      "prompt": "fresh blueberries and raspberries over crushed ice in a frosted aqua glass bowl at the tiled edge of a sunlit swimming pool, rippling blue water caustics reflecting on the tiles, cool bright light, refreshing and crisp"
+      "prompt": "fresh blueberries and raspberries over crushed ice in a frosted aqua glass bowl at the tiled edge of a sunlit swimming pool, rippling blue water caustics reflecting on the tiles, cool bright light, refreshing and crisp",
+      "optional": true,
+      "retired": "revision 6 (2026-10-25): replaced by the client's own photography and packaging art"
     },
     {
       "id": "F-REMBERRY",
       "role": "Remberry (sleep) flavor page and card art",
       "alt": "A bowl of dark berries on a beach-house windowsill at night, moonlight on the sea outside",
       "prompt": "a small ceramic bowl of dark berries, blackberries and black currants, on a white wooden beach house windowsill at night, the window open to a calm sea under one single full moon high in the sky, exactly one moon, one silver moonlight path on the water, palm silhouettes at the edge, soft blue moonlight and a faint warm glow from inside, quiet and sleepy",
-      "rejectReason": "first render showed two moons in the window (AI artifact), 2026-10-24 review"
+      "rejectReason": "first render showed two moons in the window (AI artifact), 2026-10-24 review",
+      "optional": true,
+      "retired": "revision 6 (2026-10-25): replaced by the client's own photography and packaging art"
     }
   ]
 }

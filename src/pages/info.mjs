@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { shell } from '../lib/layout.mjs';
-import { esc, raw, u, gen, cubes, icon } from '../lib/html.mjs';
+import { esc, raw, u, pic, pack, trio, icon } from '../lib/html.mjs';
 import { pageHero, breadcrumbs, eyebrow, wave, sun, grid, awardsBand, processSteps, videoBlock, ctaBand, relink, flavorCard } from '../lib/parts.mjs';
 import { SITE } from '../content/site.mjs';
 import { FLAVORS, AWARDS } from '../content/flavors.mjs';
@@ -16,10 +16,10 @@ const FORM_NOTE = 'No account, no tracking: this form opens your own email app w
 export function findUs() {
   const bc = crumbs('Find Hashables');
   const body = `
-${pageHero({ eyebrow: 'Store finder', title: 'Find Hashables', scriptWord: 'near you', crumbs: bc.html, img: 'h-coast',
-    imgAlt: 'A New England coast road at golden hour, winding between dunes toward a shingled cottage and the sea',
+${pageHero({ eyebrow: 'Store finder', title: 'Find Hashables', scriptWord: 'near you', crumbs: bc.html, img: 'surfer-sunset', imgPos: '50% 58%',
+    imgAlt: '',
     lead: 'Hashables are sold at licensed dispensaries. Use your location or the name of the town you’re in, no ZIP code needed, then check the shop’s live menu.',
-    stacks: ['watermelon-jolt', 'tropical-typhoon'], cta: `<div class="btnrow"><a class="btn btn--sun" href="#finder">${icon('locate')} Open the finder</a><a class="btn btn--glass" href="#request">Ask your dispensary</a></div>` })}
+    cta: `<div class="btnrow"><a class="btn btn--sun" href="#finder">${icon('locate')} Open the finder</a><a class="btn btn--glass" href="#request">Ask your dispensary</a></div>` })}
 <section class="band band--sand finder" id="finder" aria-labelledby="finder-h">
   <div class="wrap finder__in">
     <div class="finder__guide" data-reveal>
@@ -60,16 +60,16 @@ ${ctaBand({ title: 'Know what you’re <span class="script script--neon">looking
 export function ourStory() {
   const bc = crumbs('Our Story');
   const body = `
-${pageHero({ eyebrow: 'Our story', title: 'Real hash. Fresh pressed. <span class="hl">Tastes like paradise.</span>', crumbs: bc.html, img: 's-wave',
-    imgAlt: 'A turquoise wave curling over against a low golden sun', stacks: ['peachy-mango', 'electric-grape'],
+${pageHero({ eyebrow: 'Our story', title: 'Real hash. Fresh pressed. <span class="hl">Tastes like paradise.</span>', crumbs: bc.html, img: 'peach-pink', imgPos: '62% 50%',
+    imgAlt: 'A stack of Peachy Mango jars with mangoes, a peach and orange gummies on a pink set',
     lead: 'We make the gummy we always wanted: fresh-pressed hash rosin from our own farm flower, stacked into flavors that taste like a beach day and feel like an easy-going, uplifting chill.' })}
 <section class="band band--sand triad" aria-labelledby="tri-h">
   <div class="wrap">
     <div class="sec-head sec-head--center" data-reveal>${eyebrow('What we stand on')}<h2 id="tri-h" class="h2">A commitment to <span class="script script--ink">the real thing</span></h2></div>
     <div class="triad__grid">
-      <article class="triad__card" data-reveal data-tilt>${gen('s-bud', { alt: 'Close-up of a frosty cannabis flower', sizes: '(min-width: 900px) 30vw, 90vw' })}<div><h3>Real flower</h3><p>Hashables start with fresh frozen flower from Nova Farms’ own farms, frozen at harvest to keep its character.</p></div></article>
-      <article class="triad__card" data-reveal data-tilt style="--d:90ms">${gen('s-rosin', { alt: 'Freshly pressed hash rosin on parchment', sizes: '(min-width: 900px) 30vw, 90vw' })}<div><h3>Real hash</h3><p>We’re award-winning hash makers, and that hash is the base of every gummy: solventless live rosin, fresh pressed. No distillate.</p></div></article>
-      <article class="triad__card" data-reveal data-tilt style="--d:180ms">${gen('f-peachy-mango', { alt: 'Ripe peaches and mango by the sea at golden hour', sizes: '(min-width: 900px) 30vw, 90vw' })}<div><h3>Real flavor</h3><p>Full-spectrum rosin keeps the flower’s character, and we stack fruit-forward flavor on top. Stacks on stacks of it.</p></div></article>
+      <article class="triad__card" data-reveal data-tilt>${pic('s-bud', { alt: 'Close-up of a frosty cannabis flower', sizes: '(min-width: 900px) 30vw, 90vw' })}<div><h3>Real flower</h3><p>Hashables start with fresh frozen flower from Nova Farms’ own farms, frozen at harvest to keep its character.</p></div></article>
+      <article class="triad__card" data-reveal data-tilt style="--d:90ms">${pic('s-rosin', { alt: 'Freshly pressed hash rosin on parchment', sizes: '(min-width: 900px) 30vw, 90vw' })}<div><h3>Real hash</h3><p>We’re award-winning hash makers, and that hash is the base of every gummy: solventless live rosin, fresh pressed. No distillate.</p></div></article>
+      <article class="triad__card" data-reveal data-tilt style="--d:180ms">${pic('gummies', { alt: 'A stack of colourful Hashables gummies among watermelon, kiwi, peach, mango and pineapple', sizes: '(min-width: 900px) 30vw, 90vw' })}<div><h3>Real flavor</h3><p>Full-spectrum rosin keeps the flower’s character, and we stack fruit-forward flavor on top. Stacks on stacks of it.</p></div></article>
     </div>
   </div>
 </section>
@@ -82,7 +82,7 @@ ${pageHero({ eyebrow: 'Our story', title: 'Real hash. Fresh pressed. <span class
       <p>The idea was simple: if you love the taste of real flower, your gummy should taste like it too. So instead of distillate, every Hashables gummy is dosed with solventless hash rosin, pressed fresh from frozen flower. The result is full-spectrum, with a broad mix of cannabinoids and terpenes and a distinct flower flavor distillate can’t match.</p>
       <p>Along the way, our gummies picked up some hardware, including a category win at the 2023 Harvest Cup and podium finishes at the High Times Cannabis Cup Massachusetts People’s Choice Editions in 2022 and 2023. Recently we moved into new bags. Same gummy, new look.</p>
     </div>
-    <div class="story__media" data-reveal>${gen('h-coast', { alt: 'A New England coast road at golden hour', sizes: '(min-width: 900px) 45vw, 92vw' })}<div class="story__badge glass">${icon('trophy')}<span><strong>Award-winning</strong> hash makers</span></div></div>
+    <div class="story__media story__media--bags" data-reveal>${trio({ sizes: '(min-width: 900px) 44vw, 90vw' })}<div class="story__badge glass">${icon('trophy')}<span><strong>Award-winning</strong> hash makers</span></div></div>
   </div>
 </section>
 <section class="band band--dusk look" aria-labelledby="look-h">
@@ -118,8 +118,8 @@ export function faqs(faq) {
   const bc = crumbs('FAQs');
   const count = faq.topics.reduce((n, t) => n + t.items.length, 0);
   const body = `
-${pageHero({ eyebrow: 'Hashables help center', title: 'FAQs', scriptWord: 'answered', crumbs: bc.html, img: 'h-towel', short: true,
-    imgAlt: 'A striped pink, aqua and yellow beach towel on sand with sunglasses, a straw hat and seashells',
+${pageHero({ eyebrow: 'Hashables help center', title: 'FAQs', scriptWord: 'answered', crumbs: bc.html, img: 'watermelon-green', imgPos: '50% 55%', short: true,
+    imgAlt: 'Watermelon Jolt jars with watermelon wedges and a cup of pink gummies on a green set',
     lead: esc(faq.intro || 'Questions are good. Clear answers are better.') })}
 <section class="band band--sand help" aria-label="Frequently asked questions">
   <div class="wrap help__in">
@@ -127,7 +127,7 @@ ${pageHero({ eyebrow: 'Hashables help center', title: 'FAQs', scriptWord: 'answe
       <label class="help__search"><span class="sr">Search the FAQs</span>${icon('search')}<input type="search" placeholder="Search ${count} answers" data-faq-search></label>
       <p class="help__k">Browse by topic</p>
       <nav class="help__topics" aria-label="FAQ topics">${faq.topics.map((t) => `<a href="#${t.id}"><span>${esc(t.label)}</span><small>${t.items.length}</small></a>`).join('')}</nav>
-      <div class="help__card glass glass--dark">${cubes('remberry', { cls: 'cubes help__cubes' })}<p><strong>Still curious?</strong> We’d love to help.</p><a class="btn btn--sun btn--sm" href="${u('/contact/')}">Contact us</a></div>
+      <div class="help__card glass glass--dark">${pack('remberry', { sizes: '96px', cls: 'help__pack' })}<p><strong>Still curious?</strong> We’d love to help.</p><a class="btn btn--sun btn--sm" href="${u('/contact/')}">Contact us</a></div>
     </aside>
     <div class="help__main">
       <p class="help__none" data-faq-none hidden>No answers match that search. Try another word, or <a href="${u('/contact/')}">ask us directly</a>.</p>
@@ -147,7 +147,7 @@ ${ctaBand()}
 export function lab(labc) {
   const bc = crumbs('Lab Results');
   const body = `
-${pageHero({ eyebrow: 'Quality', title: esc(labc.title), crumbs: bc.html, img: 's-frozen', short: true, imgAlt: 'Freshly harvested cannabis flowers resting on crushed ice', lead: esc(labc.intro) })}
+${pageHero({ eyebrow: 'Quality', title: esc(labc.title), crumbs: bc.html, img: 'spectrum', short: true, imgAlt: '', lead: esc(labc.intro) })}
 <section class="band band--sand labsec" aria-label="How lab results work">
   <div class="wrap labsec__in">
     <div class="labsec__copy">${labc.sections.map((s) => `<section class="prose" data-reveal><h2 class="h3">${esc(s.heading)}</h2>${relink(s.html)}</section>`).join('')}<p class="fine">${esc(labc.note)}</p></div>
@@ -174,7 +174,7 @@ export function press() {
     { outlet: 'High Times', date: 'Nov 28, 2022', title: 'The Winners of the High Times Cannabis Cup Massachusetts: People’s Choice Edition 2022', note: 'Watermelon Jolt takes second place for sativa gummies.', href: AWARDS.ht22.href },
   ];
   const body = `
-${pageHero({ eyebrow: 'Hashables in the news', title: 'Awards', scriptWord: '& press', crumbs: bc.html, img: 's-hero', short: true, imgAlt: 'A beach at sunset under a pink sky',
+${pageHero({ eyebrow: 'Hashables in the news', title: 'Awards', scriptWord: '& press', crumbs: bc.html, img: 'typhoon-tower', imgPos: '50% 60%', short: true, imgAlt: 'A tower of Tropical Typhoon jars beside a pineapple on an aqua set',
     lead: 'We’re award-winning hash makers, and our gummies have the hardware to show for it.' })}
 ${awardsBand({ id: 'press-awards' })}
 <section class="band band--sand news" aria-labelledby="news-h">
@@ -191,7 +191,7 @@ ${awardsBand({ id: 'press-awards' })}
 export function contact() {
   const bc = crumbs('Contact');
   const body = `
-${pageHero({ eyebrow: 'Contact', title: 'Say', scriptWord: 'hey', crumbs: bc.html, img: 'h-towel', short: true, imgAlt: 'A striped beach towel on sand with sunglasses and a straw hat',
+${pageHero({ eyebrow: 'Contact', title: 'Say', scriptWord: 'hey', crumbs: bc.html, img: 'watermelon-pink', imgPos: '50% 52%', short: true, imgAlt: 'Watermelon Jolt jars stacked on watermelon slices beside a cactus',
     lead: 'Questions, flavor love, dispensary suggestions and partnership ideas are all welcome.' })}
 <section class="band band--sand contact" aria-label="Contact options">
   <div class="wrap contact__in">
@@ -219,7 +219,7 @@ ${pageHero({ eyebrow: 'Contact', title: 'Say', scriptWord: 'hey', crumbs: bc.htm
 export function careers() {
   const bc = crumbs('Careers');
   const body = `
-${pageHero({ eyebrow: 'Careers', title: 'Join the', scriptWord: 'crew', crumbs: bc.html, img: 'h-boards', short: true, imgAlt: 'Three vintage longboards standing in the sand before a dune',
+${pageHero({ eyebrow: 'Careers', title: 'Join the', scriptWord: 'crew', crumbs: bc.html, img: 'palms-yellow', short: true, imgAlt: '',
     lead: 'Hashables is made by the team at Nova Farms, a Massachusetts cannabis company with its own farms and dispensaries.' })}
 <section class="band band--sand" aria-label="Working with Hashables">
   <div class="wrap narrow prose" data-reveal>
@@ -261,8 +261,8 @@ export function notFound() {
 <section class="nf">
   ${sun('sun--nf')}${grid('grid-floor--nf grid-floor--move')}
   <div class="wrap nf__in">
-    <div class="nf__cubes" aria-hidden="true">${cubes('electric-grape', { cls: 'cubes nf__c1' })}${cubes('lemon-burst', { cls: 'cubes nf__c2' })}</div>
     <p class="eyebrow">Error 404</p>
+    <div class="nf__product">${trio({ sizes: '(min-width: 720px) 380px, 70vw' })}</div>
     <h1 class="nf__h">Total <span class="script script--neon">wipeout.</span></h1>
     <p>That page washed out to sea. Let’s get you back on the board.</p>
     <div class="btnrow btnrow--center"><a class="btn btn--sun" href="${u('/')}">Back to the beach</a><a class="btn btn--glass" href="${u('/live-rosin-gummies/')}">See the flavors</a><a class="btn btn--glass" href="${u('/find-us/')}">Find a store</a></div>

@@ -1,6 +1,6 @@
 // blog.mjs - /blog/ index and one page per article (src/content/blog.json).
 import { shell } from '../lib/layout.mjs';
-import { esc, raw, u, gen, icon } from '../lib/html.mjs';
+import { esc, raw, u, pic, picPath, icon } from '../lib/html.mjs';
 import { pageHero, breadcrumbs, eyebrow, postCard, ctaBand, relink } from '../lib/parts.mjs';
 import { SITE } from '../content/site.mjs';
 
@@ -8,8 +8,8 @@ export function blogIndex(blog) {
   const bc = breadcrumbs([{ label: 'Home', href: '/' }, { label: 'Blog' }]);
   const cats = [...new Set(blog.articles.map((a) => a.category))];
   const body = `
-${pageHero({ eyebrow: 'The Hashables blog', title: 'Hash, flavor and', scriptWord: 'good vibes', crumbs: bc.html, img: 's-rosin', short: true,
-    imgAlt: 'A small mound of freshly pressed hash rosin on parchment', lead: 'Live rosin explained, flavor field guides and the basics of enjoying edibles, all in plain language.' })}
+${pageHero({ eyebrow: 'The Hashables blog', title: 'Hash, flavor and', scriptWord: 'good vibes', crumbs: bc.html, img: 'flatlay', imgPos: '50% 42%', short: true,
+    imgAlt: 'Hashables jars from above among kiwi, dragon fruit, mango and gummies', lead: 'Live rosin explained, flavor field guides and the basics of enjoying edibles, all in plain language.' })}
 <section class="band band--sand blogidx" aria-label="Articles">
   <div class="wrap">
     <div class="chipbar" role="group" aria-label="Filter by topic" data-filter>
@@ -29,7 +29,7 @@ export function article(a, blog) {
   const body = `
 <article class="art" aria-labelledby="art-h">
   <header class="art__hero">
-    <div class="art__img" data-parallax="0.15">${gen(a.heroImage, { alt: '', sizes: '100vw', eager: true })}</div>
+    <div class="art__img" data-parallax="0.15">${pic(a.heroImage, { alt: '', sizes: '100vw', eager: true })}</div>
     <div class="art__veil" aria-hidden="true"></div>
     <div class="wrap art__head">
       ${bc.html}
@@ -53,7 +53,7 @@ export function article(a, blog) {
 ${related.length ? `<section class="band band--sky blogrow" aria-labelledby="rel-h"><div class="wrap"><div class="sec-head sec-head--row" data-reveal><div>${eyebrow('Keep reading')}<h2 id="rel-h" class="h2">Related <span class="script script--ink">articles</span></h2></div><a class="btn btn--ink" href="${u('/blog/')}">All articles ${icon('arrow')}</a></div><div class="bgrid">${related.map((r, i) => postCard(r, i)).join('')}</div></div></section>` : ''}
 ${ctaBand()}
 `;
-  return shell({ route: '/blog/' + a.slug + '/', title: a.title, description: a.metaDescription || a.dek, ogImage: `/assets/img/gen/${a.heroImage}-1600.webp`, body,
-    schema: [bc.ld, { '@context': 'https://schema.org', '@type': 'Article', headline: a.title, description: a.metaDescription || a.dek, image: SITE.url + `/assets/img/gen/${a.heroImage}-1600.webp`,
+  return shell({ route: '/blog/' + a.slug + '/', title: a.title, description: a.metaDescription || a.dek, ogImage: picPath(a.heroImage), body,
+    schema: [bc.ld, { '@context': 'https://schema.org', '@type': 'Article', headline: a.title, description: a.metaDescription || a.dek, image: SITE.url + picPath(a.heroImage),
       author: { '@type': 'Organization', name: 'Hashables' }, publisher: { '@type': 'Organization', name: 'Hashables', url: SITE.url }, mainEntityOfPage: SITE.url + '/blog/' + a.slug + '/' }] });
 }
