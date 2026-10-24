@@ -8,7 +8,8 @@
   const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
   const sess = { get(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} } };
   root.classList.add('js');
-  if (params.has('static')) root.classList.remove('js');   // QA: everything visible, no reveal
+  const still = params.has('static');   // QA: everything visible, no reveal. It keeps html.js, so the menus behave as for a visitor
+  if (still) root.classList.add('static');
 
   /* ---------- focus trap helper ---------- */
   const focusables = (el) => qsa('a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])', el).filter((x) => x.offsetParent !== null);
@@ -35,8 +36,76 @@
   const hdr = qs('[data-hdr]');
   const onScrollHdr = () => hdr && hdr.classList.toggle('is-scrolled', w.scrollY > 24);
   onScrollHdr();
+  // current page: aria-current on the exact link; the trigger of the panel holding it marks the section, unless the page has a
+  // top-level link of its own (the mega menu's "Find a stack near you" must not light Gummies up next to Find us)
   const here = location.pathname.replace(/index\.html$/, '');
-  qsa('.hdr__nav a').forEach((a) => { const p = new URL(a.href).pathname; if (p !== '/' && here.startsWith(p) && p.length > 1) a.setAttribute('aria-current', 'page'); });
+  const pathOf = (a) => a.pathname.replace(/index\.html$/, '');
+  const topPaths = qsa('.hdr .nav > li > a[href]').map(pathOf);
+  qsa('.hdr .nav a[href]').forEach((a) => {
+    if (a.origin !== location.origin) return;
+    const p = pathOf(a);
+    if (p === here) a.setAttribute('aria-current', 'page');
+    const li = a.closest('[data-nav-item]');
+    if (li && p.length > 1 && here.startsWith(p) && !topPaths.includes(p)) qs('[data-nav-btn]', li).classList.add('is-current');
+  });
+
+  /* ---------- desktop nav: Gummies mega menu, Learn + About dropdowns (disclosure buttons, not ARIA menus) ---------- */
+  const navItems = qsa('[data-nav-item]');
+  let openItem = null, byHoverOpen = false;
+  const btnOf = (li) => qs('[data-nav-btn]', li), panelOf = (li) => qs('[data-nav-panel]', li);
+  const warm = (li) => qsa('img[loading="lazy"]', panelOf(li)).forEach((i) => { i.loading = 'eager'; });   // fetch thumbnails on hover intent
+  function setPanel(li, on, { focus = false, byHover = false } = {}) {
+    if (on && openItem && openItem !== li) setPanel(openItem, false);
+    const b = btnOf(li), p = panelOf(li);
+    if (on) p.hidden = false;
+    li.classList.toggle('is-open', on);
+    b.setAttribute('aria-expanded', String(on));
+    if (!on) p.hidden = true;
+    if (on) openItem = li; else if (openItem === li) openItem = null;
+    byHoverOpen = on && byHover;
+    hdr && hdr.classList.toggle('has-panel', !!openItem);
+    if (!on && focus) b.focus();
+  }
+  navItems.forEach((li) => {
+    btnOf(li).addEventListener('click', () => {
+      const open = li.classList.contains('is-open');
+      if (open && byHoverOpen) return;   // the mouse holds it open: a click on the trigger must not snap it shut under the pointer
+      setPanel(li, !open);
+    });
+    // keyboard: leaving the item closes it (a click on blank panel space blurs to nothing and is not a leave)
+    li.addEventListener('focusout', (e) => { if (li.classList.contains('is-open') && e.relatedTarget && !li.contains(e.relatedTarget)) setPanel(li, false); });
+  });
+  // mouse: one timer settles the open panel onto the item under the pointer. On its way down into an open panel the pointer may
+  // cross other items, so while it keeps heading for the panel the switch or close waits (menu-aim, turned on its side)
+  if (fine) {
+    let under = null, pt = null, movedAt = 0, apex = null, settleT = 0;
+    // heading for the open panel: the pointer moved in the last 180ms and is still inside the triangle from where it left the open
+    // item (lifted 2px, so the pixel-rounded first steps of a shallow path count) to the panel's top corners, with 40px of slack
+    const heading = () => {
+      if (!openItem || !apex || apex.li !== openItem || !pt || performance.now() - movedAt > 180) return false;
+      const r = panelOf(openItem).getBoundingClientRect();
+      if (pt[1] >= r.top) return false;
+      const a = [apex.x, apex.y - 2], b = [r.left - 40, r.top], c = [r.right + 40, r.top];
+      const side = (p, q) => (q[0] - p[0]) * (pt[1] - p[1]) - (q[1] - p[1]) * (pt[0] - p[0]);
+      const s = [side(a, b), side(b, c), side(c, a)];
+      return !(s.some((v) => v < 0) && s.some((v) => v > 0));
+    };
+    const settle = () => {
+      if (under === openItem) return;
+      if (heading()) { settleT = setTimeout(settle, 110); return; }
+      if (under) setPanel(under, true, { byHover: true }); else setPanel(openItem, false);
+    };
+    // nothing open: open after 80ms of hover intent. One open: a switch waits 150ms and a close 350ms, both held while heading for it
+    const aim = () => { clearTimeout(settleT); settleT = setTimeout(settle, !openItem ? 80 : under ? 150 : 350); };
+    const track = (e) => { if (e.pointerType !== 'mouse') return false; pt = [e.clientX, e.clientY]; movedAt = performance.now(); return true; };
+    d.addEventListener('pointermove', track, { passive: true });
+    navItems.forEach((li) => {
+      li.addEventListener('pointerenter', (e) => { if (!track(e)) return; warm(li); under = li; aim(); });
+      li.addEventListener('pointerleave', (e) => { if (!track(e)) return; if (li === openItem) apex = { li, x: pt[0], y: pt[1] }; if (under === li) under = null; aim(); });
+    });
+  }
+  d.addEventListener('pointerdown', (e) => { if (openItem && !openItem.contains(e.target)) setPanel(openItem, false); });
+  d.addEventListener('keydown', (e) => { if (e.key === 'Escape' && openItem) setPanel(openItem, false, { focus: openItem.contains(d.activeElement) }); });
 
   /* ---------- drawer ---------- */
   const drawer = qs('[data-drawer]'), opener = qs('[data-menu-open]');
@@ -47,6 +116,24 @@
   qsa('[data-menu-close]').forEach((b) => b.addEventListener('click', closeDrawer));
   drawer && drawer.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); trap(drawer, e); });
   drawer && qsa('a', drawer).forEach((a) => a.addEventListener('click', () => { if (a.hash && a.pathname === location.pathname) closeDrawer(); }));
+  // the drawer is the mobile menu and the split nav the desktop one: crossing the breakpoint closes whichever was open. If that
+  // hid the control holding focus (the desktop nav below 1024, the menu button above), focus moves to its counterpart
+  const desk = w.matchMedia('(min-width: 1024px)');
+  // under load the browser can blur the hidden control before the change event arrives: remember what last lost focus to nothing
+  let dropped = null, droppedAt = 0;
+  d.addEventListener('focusout', (e) => { if (!e.relatedTarget) { dropped = e.target; droppedAt = performance.now(); } });
+  const onBreak = () => {
+    let a = d.activeElement;
+    if ((!a || a === d.body) && performance.now() - droppedAt < 500) a = dropped;
+    if (openItem) setPanel(openItem, false);
+    if (desk.matches) closeDrawer();
+    if (!a || !((hdr && hdr.contains(a)) || (drawer && drawer.contains(a)))) return;
+    const now = d.activeElement;
+    if (now && now !== d.body && now.getClientRects().length) return;
+    const to = desk.matches ? hdr && focusables(hdr)[0] : opener;
+    to && to.focus();
+  };
+  desk.addEventListener ? desk.addEventListener('change', onBreak) : desk.addListener(onBreak);
 
   /* ---------- background videos ---------- */
   const vids = qsa('video[data-bgvideo]');
@@ -65,7 +152,7 @@
 
   /* ---------- reveal on scroll ---------- */
   const reveals = qsa('[data-reveal]');
-  if (root.classList.contains('js')) {
+  if (!still) {
     if ('IntersectionObserver' in w && !reduce) {
       const rio = new IntersectionObserver((ents) => ents.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('is-in'); rio.unobserve(en.target); } }), { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
       reveals.forEach((el) => rio.observe(el));
