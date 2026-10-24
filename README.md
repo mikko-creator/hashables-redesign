@@ -18,8 +18,8 @@ This is a **pitch build**, not the live site.
 - **Navigation.** On desktop the wordmark sits centred with the menu split either side: Gummies opens a mega menu
   with every line and flavor, Learn and About open dropdowns, and Find us, Contact and the store-finder button sit in
   the bar. Phones and tablets get a menu button that opens the full-screen menu.
-- **Motion.** Looping sunset and wave videos, scroll reveals, floating cube stacks, tilt-and-glare hovers. All of it
-  stops under `prefers-reduced-motion`.
+- **Motion.** A looping surf film in the home hero, coloured by a brand gradient, a looping wave video, scroll
+  reveals, floating cube stacks, tilt-and-glare hovers. All of it stops under `prefers-reduced-motion`.
 - **Built for search.** One H1 per page, descriptive titles and meta descriptions, canonical URLs, breadcrumbs,
   JSON-LD (Organization, Product, FAQPage, Article, BreadcrumbList), sitemap.xml and robots.txt for production.
 
@@ -56,9 +56,12 @@ Every URL the build prints is relative to its page, so `dist/` works from any fo
 
 - **Client art** (from hashables.com): the logo, the nine flavor cube photos (cut out for the floating stacks), the
   pink palms, yellow palms and swirl backgrounds, the award badges and the video thumbnail.
-- **Generated** for the concept: 15 stills (fal flux-pro ultra), 3 stills (Higgsfield Qwen Image 3) and 2 looping
-  videos (Higgsfield Kling image-to-video). None shows a person, a product, text or a real Nova Farms place. Every
+- **Generated** for the concept: 15 stills (fal flux-pro ultra), 3 stills (Higgsfield Qwen Image 3) and the looping
+  wave video (Higgsfield Kling image-to-video). None shows a person, a product, text or a real Nova Farms place. Every
   generated file carries the IPTC `trainedAlgorithmicMedia` label (XMP in images, container tags in video).
+- **Footage:** the home hero film is stock beach footage supplied for the pitch (two surfers walking out of the sea at
+  sunset). It is encoded in greyscale and coloured on the page by a brand gradient in multiply
+  (`tools/make-loop.mjs --gray --footage`). It is camera footage, so it carries no AI label.
 
 ## Fonts
 

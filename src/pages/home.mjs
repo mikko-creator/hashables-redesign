@@ -13,9 +13,10 @@ export function home({ faq, blog, pickFaq }) {
 <section class="hero" data-parallax-root aria-labelledby="hero-h">
   <div class="clip" aria-hidden="true">
     <div class="hero__media" data-parallax="0.22">
-      <img class="hero__poster" src="${u('/assets/media/hero-sunset-poster.webp')}" alt="" width="1920" height="1074" fetchpriority="high">
-      <video class="hero__video" muted loop playsinline preload="none" poster="${u('/assets/media/hero-sunset-poster.webp')}" data-bgvideo data-src-sm="${u('/assets/media/hero-sunset-960.mp4')}" data-src-lg="${u('/assets/media/hero-sunset-1920.mp4')}"></video>
+      <img class="hero__poster" src="${u('/assets/media/hero-venice-poster.webp')}" alt="" width="1280" height="720" fetchpriority="high">
+      <video class="hero__video" muted loop playsinline preload="none" poster="${u('/assets/media/hero-venice-poster.webp')}" data-bgvideo data-src-sm="${u('/assets/media/hero-venice-phone.mp4')}" data-src-lg="${u('/assets/media/hero-venice.mp4')}"></video>
     </div>
+    <div class="hero__tint"></div>
     <div class="hero__veil"></div>
     ${grid('grid-floor--hero grid-floor--move')}
     <img class="hero__palms" src="${u('/assets/img/cut/palms-1600.webp')}" alt="" width="1600" height="1068" data-parallax="-0.08">
@@ -108,7 +109,7 @@ ${blogCards(blog.articles)}
     description: SITE.description,
     body,
     bodyClass: 'is-home',
-    head: `<link rel="preload" as="image" href="${u('/assets/media/hero-sunset-poster.webp')}">`,
+    head: `<link rel="preload" as="image" href="${u('/assets/media/hero-venice-poster.webp')}">`,
     schema: [
       { '@context': 'https://schema.org', '@type': 'Organization', '@id': SITE.url + '/#org', name: 'Hashables', url: SITE.url, email: SITE.email,
         logo: SITE.url + '/assets/img/brand/hashables-logo-straight.png', sameAs: [SITE.instagram, SITE.twitter],

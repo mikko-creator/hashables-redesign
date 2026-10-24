@@ -27,6 +27,7 @@
 | 9 | The ice-water hash step in the process description | process strip, articles |
 | 10 | Privacy policy (carried over as published, dated Sept 1, 2021), accessibility statement and age-gate wording need legal review | legal pages |
 | 11 | Massachusetts marketing rules review of imagery and copy | site-wide |
+| 12 | The hero film is stock footage supplied for the pitch: confirm its licence covers the live site | home hero |
 
 ## Recommendations
 

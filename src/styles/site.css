@@ -247,6 +247,9 @@ html:not(.js) .nav__item:hover > [data-nav-panel], html:not(.js) .nav__item:focu
 .hero__poster, .hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
 .hero__video { opacity: 0; transition: opacity 1.2s; }
 .hero__video.is-playing { opacity: 1; }
+/* the beach film is greyscale (tools/make-loop.mjs --gray); this gradient in multiply gives it the kit's colours: the
+   silhouettes stay dark, the bright sky and sea run violet, pink, a coral horizon, then magenta */
+.hero__tint { position: absolute; inset: 0; z-index: -3; mix-blend-mode: multiply; background: linear-gradient(180deg, #5b33c0 0%, #a845bd 24%, #ff5f9a 40%, #ff9466 50%, #ff6fa8 62%, #e85ec4 82%, #c056d6 100%); }
 .hero__veil { position: absolute; inset: 0; z-index: -2; background: linear-gradient(95deg, rgba(36, 10, 60, .72) 0%, rgba(36, 10, 60, .35) 42%, rgba(36, 10, 60, 0) 70%), linear-gradient(0deg, rgba(26, 11, 46, .55), transparent 40%); }
 .hero .grid-floor { z-index: -1; height: 34%; opacity: .45; }
 .hero__palms { position: absolute; z-index: 1; bottom: -2%; left: 50%; width: max(1500px, 118vw); max-width: none; translate: -50% 0; pointer-events: none; opacity: .95; filter: drop-shadow(0 10px 30px rgba(0, 0, 0, .35)); }

@@ -2,6 +2,11 @@
 //
 //   node tools/make-loop.mjs --in tmp/hf/aurora.mp4 --out assets/media/hero-aurora [--fade 1.5] [--width 1920]
 //        [--phone-width 720 --phone-aspect 9:16 --phone-x 0.5] [--what "AI-generated still with a camera drift"] [--crf 26] [--label "Higgsfield kling-video/v3.0-turbo/image-to-video"]
+//        [--footage "Stock footage of ..."] [--no-webm] [--gray]
+//
+// --footage: the clip is real footage, not generated. Its note replaces the AI label in the container tags, so camera
+// footage is never stamped trainedAlgorithmicMedia. --no-webm skips the VP9 copy for a page that only serves MP4.
+// --gray: drop the colour (luma only), for a clip the page colours with a CSS gradient in multiply.
 //
 // Seamless loop: L = xfade( clip[fade..T], clip[0..fade], offset = T - 2*fade, duration = fade ).
 //   L(0) = clip(fade); at its end L crossfades back into clip(fade) — so the last frame flows into the first.
@@ -43,7 +48,8 @@ const label = String(args.label || 'AI-generated video');
 // it in the container tags; tools/ai-label.mjs verify checks it there (lane IMG, 2026-10-12)
 // --what: how the label opens; a camera drift over an AI still (tools/still-loop.mjs) is not AI motion
 const what = String(args.what || 'AI-generated illustrative motion');
-const aiNote = what + ' (' + label + '). IPTC digital source type: http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia. Not footage of Hashables (hashables.com) or Nova Farms, their farms, staff, customers, products or brands.';
+const footage = typeof args.footage === 'string' ? args.footage : null;
+const aiNote = footage || what + ' (' + label + '). IPTC digital source type: http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia. Not footage of Hashables (hashables.com) or Nova Farms, their farms, staff, customers, products or brands.';
 
 const probe = JSON.parse(run(FP, ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height,r_frame_rate,nb_frames:format=duration', '-of', 'json', inp]).stdout);
 const T = Number(probe.format.duration);
@@ -51,11 +57,11 @@ const [fn, fd] = String(probe.streams[0].r_frame_rate).split('/').map(Number);
 const fps = fd ? fn / fd : fn;
 if (!(T > 2 * fade + 1)) throw new Error('clip too short for a ' + fade + 's crossfade: ' + T + 's');
 const offset = (T - 2 * fade).toFixed(3);
-const loopGraph = `[0:v]trim=start=${fade}:end=${T},setpts=PTS-STARTPTS,fps=${fps}[a];[0:v]trim=start=0:end=${fade},setpts=PTS-STARTPTS,fps=${fps}[b];[a][b]xfade=transition=fade:duration=${fade}:offset=${offset},scale='min(${width},iw)':-2:flags=lanczos,format=yuv420p[v]`;
+const loopGraph = `[0:v]trim=start=${fade}:end=${T},setpts=PTS-STARTPTS,fps=${fps}[a];[0:v]trim=start=0:end=${fade},setpts=PTS-STARTPTS,fps=${fps}[b];[a][b]xfade=transition=fade:duration=${fade}:offset=${offset},scale='min(${width},iw)':-2:flags=lanczos,${args.gray ? 'hue=s=0,' : ''}format=yuv420p[v]`;
 
-const mp4 = out + '.mp4', webm = out + '.webm', poster = out + '-poster.webp';
+const mp4 = out + '.mp4', webm = args['no-webm'] ? null : out + '.webm', poster = out + '-poster.webp';
 run(FF, ['-y', '-loglevel', 'error', '-i', inp, '-filter_complex', loopGraph, '-map', '[v]', '-an', '-c:v', 'libx264', '-preset', 'slow', '-crf', crf, '-profile:v', 'high', '-movflags', '+faststart', '-metadata', 'comment=' + aiNote, '-metadata', 'description=' + aiNote, mp4]);
-run(FF, ['-y', '-loglevel', 'error', '-i', mp4, '-an', '-c:v', 'libvpx-vp9', '-b:v', '0', '-crf', '36', '-row-mt', '1', '-deadline', 'good', '-cpu-used', '2', '-metadata', 'comment=' + aiNote, webm]);
+if (webm) run(FF, ['-y', '-loglevel', 'error', '-i', mp4, '-an', '-c:v', 'libvpx-vp9', '-b:v', '0', '-crf', '36', '-row-mt', '1', '-deadline', 'good', '-cpu-used', '2', '-metadata', 'comment=' + aiNote, webm]);
 run(FF, ['-y', '-loglevel', 'error', '-i', mp4, '-frames:v', '1', '-c:v', 'libwebp', '-quality', '82', poster]);
 let phone = null;
 if (args['phone-width']) {
@@ -87,7 +93,7 @@ const report = {
     frames: d.length, max: sorted[sorted.length - 1], p95: sorted[Math.floor(sorted.length * 0.95)], mean: +(d.reduce((a, b) => a + b, 0) / (d.length || 1)).toFixed(3),
     framesOver20: d.filter((v) => v > 20).length, seamChange: seam,
   },
-  aiLabel: aiNote, generatedAt: new Date().toISOString(),
+  ...(footage ? { footage: aiNote } : { aiLabel: aiNote }), generatedAt: new Date().toISOString(),
 };
 fs.writeFileSync(out + '.json', JSON.stringify(report, null, 2));
 console.log(JSON.stringify(report.calmness), JSON.stringify(report.outputs));
