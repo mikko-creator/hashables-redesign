@@ -19,7 +19,8 @@ export function home({ faq, blog, pickFaq }) {
     <div class="hero__tint"></div>
     <div class="hero__veil"></div>
     ${grid('grid-floor--hero grid-floor--move')}
-    <img class="hero__palms" src="${u('/assets/img/cut/palms-1600.webp')}" alt="" width="1600" height="1068" data-parallax="-0.08">
+    <img class="hero__palm hero__palm--l" src="${u('/assets/img/cut/hero-palm-l.webp')}" alt="" width="1705" height="1983" data-parallax="-0.08">
+    <img class="hero__palm hero__palm--r" src="${u('/assets/img/cut/hero-palm-r.webp')}" alt="" width="1499" height="1955" data-parallax="-0.08">
   </div>
   <div class="hero__in wrap">
     <div class="hero__pane glass" data-reveal>

@@ -1,0 +1,27 @@
+{
+  "tool": "tools/fal-gen.mjs",
+  "slot": "P-PALMS-B",
+  "file": "assets/generated/p-palms-b.jpg",
+  "iptcDigitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+  "provenance": "AI-generated (fal.ai). Illustrative only: never a photograph of Hashables (hashables.com) or Nova Farms, their farms, staff, customers, products or brands.",
+  "model": "fal-ai/flux-pro/v1.1-ultra",
+  "prompt": "a pair of graceful coconut palms leaning in from the left and right edges of the frame, seen from a low angle, slender curved trunks rising from the two bottom corners, lush crowns of long feathery fronds with fine separate leaflets hanging over the two upper corners, round coconuts clustered under each crown, a wide empty white space in the centre of the frame, clean graphic silhouette, the trees one flat solid pure black shape on a plain pure white background, crisp smooth sharp edges, high contrast, no texture, no film grain, no gradient, no shading, no ground, no sand, no grass, no horizon line, no sun, no moon, no birds, no clouds, no people, no text, no lettering, no logos",
+  "input": {
+    "aspect_ratio": "3:2",
+    "output_format": "jpeg",
+    "safety_tolerance": "5"
+  },
+  "seed": 751344305,
+  "requestId": "01a16e56-f11c-7d82-843e-f3e99be5c8b0",
+  "cutout": null,
+  "width": 2496,
+  "height": 1664,
+  "sha256": "0f97820053b0b4e45ffdf16f3d2795ae46e438a1e5582ccf9dc7fdcb5498007d",
+  "raw": "tmp/img/raw/P-PALMS-B.1792852570669.jpg",
+  "attempt": 1,
+  "generatedAt": "2026-10-24T14:36:12.316Z",
+  "review": {
+    "verdict": "PENDING",
+    "reason": null
+  }
+}

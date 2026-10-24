@@ -1,0 +1,50 @@
+{
+  "note": "Hashables redesign pitch, revision 4 - a clean coconut palm silhouette for the home hero (fal flux-pro ultra), replacing the cut-out of the client's posterised pink-palms art. Run: node tools/fal-gen.mjs --plan src/content/palm-plan.json --key-file <path>. The chosen render (P-PALMS-B) is keyed and coloured by tools/palms.py. Illustrative only. The other three were candidates: optional, so a plain re-run never pays for them again.",
+  "defaults": {
+    "model": "fal-ai/flux-pro/v1.1-ultra",
+    "style": "clean graphic silhouette, the trees one flat solid pure black shape on a plain pure white background, crisp smooth sharp edges, high contrast, no texture, no film grain, no gradient, no shading, no ground, no sand, no grass, no horizon line, no sun, no moon, no birds, no clouds, no people, no text, no lettering, no logos",
+    "input": {
+      "aspect_ratio": "3:2",
+      "output_format": "jpeg",
+      "safety_tolerance": "5"
+    }
+  },
+  "images": [
+    {
+      "id": "P-PALMS-A",
+      "role": "home hero palms (candidate: a framing pair in one render)",
+      "alt": "Silhouettes of two coconut palms leaning in from the left and right edges, their crowns over the upper corners",
+      "prompt": "two tall coconut palm trees framing an empty centre: the left palm rises from the bottom left corner on a slender trunk that curves gently up and to the right, its full crown of long arching feathery fronds spreading wide across the upper left; the right palm rises from the bottom right corner, a little taller, its slender trunk curving gently up and to the left, its full crown of long arching drooping fronds spreading across the upper right; a small cluster of round coconuts tucked under each crown; every frond shows fine separate leaflets; the whole middle of the frame is empty white",
+      "optional": true,
+      "rejectReason": "not chosen 2026-10-24: a grass strip along the foot and a solid wedge in the left crown"
+    },
+    {
+      "id": "P-PALMS-B",
+      "role": "home hero palms, the chosen render (tools/palms.py keys it into hero-palm-l.webp and hero-palm-r.webp)",
+      "alt": "Silhouettes of two coconut palms leaning in from the left and right edges, their crowns over the upper corners",
+      "prompt": "a pair of graceful coconut palms leaning in from the left and right edges of the frame, seen from a low angle, slender curved trunks rising from the two bottom corners, lush crowns of long feathery fronds with fine separate leaflets hanging over the two upper corners, round coconuts clustered under each crown, a wide empty white space in the centre of the frame"
+    },
+    {
+      "id": "P-PALM-SOLO-A",
+      "role": "home hero palms (candidate: one tree, composed in tools/palms.py)",
+      "alt": "Silhouette of a tall coconut palm with a curved trunk and a full crown of arching fronds",
+      "prompt": "a single tall coconut palm tree, its slender smooth trunk rising from the bottom of the frame and curving gracefully to the right, a full crown of long arching feathery fronds with fine individual leaflets radiating in every direction, some fronds drooping low, a cluster of round coconuts under the crown, the whole tree in frame with white space around the crown",
+      "input": {
+        "aspect_ratio": "2:3"
+      },
+      "optional": true,
+      "rejectReason": "not chosen 2026-10-24: grey mid-tones in the fronds and coconuts would key semi-transparent"
+    },
+    {
+      "id": "P-PALM-SOLO-B",
+      "role": "home hero palms (candidate: one tree, composed in tools/palms.py)",
+      "alt": "Silhouette of a tall coconut palm leaning left with a lush crown of drooping fronds",
+      "prompt": "a single tall coconut palm tree leaning to the left in a gentle S-curve, its slender trunk rising from the bottom of the frame, a lush crown of long arching drooping feathery fronds with fine separate leaflets, a cluster of round coconuts under the crown, the whole tree in frame with white space around the crown",
+      "input": {
+        "aspect_ratio": "2:3"
+      },
+      "optional": true,
+      "rejectReason": "not chosen 2026-10-24: a second trunk, yellow coconuts and grey trunk texture"
+    }
+  ]
+}

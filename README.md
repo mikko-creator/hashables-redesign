@@ -50,15 +50,17 @@ Every URL the build prints is relative to its page, so `dist/` works from any fo
 | `src/content/` | flavors, site config, FAQ, blog articles, privacy policy, image manifest |
 | `src/styles/site.css`, `src/scripts/site.js` | the design system and interactions |
 | `assets/generated/` | AI image originals with their prompt/seed sidecars |
-| `tools/` | image derivatives (`derive.py`), cut-outs (`cutouts.py`) and their menu thumbnails (`thumbs.py`), video loops, generation runners, preview, checks |
+| `tools/` | image derivatives (`derive.py`), cut-outs (`cutouts.py`, `palms.py`) and their menu thumbnails (`thumbs.py`), video loops, generation runners, preview, checks |
 
 ## Imagery
 
 - **Client art** (from hashables.com): the logo, the nine flavor cube photos (cut out for the floating stacks), the
   pink palms, yellow palms and swirl backgrounds, the award badges and the video thumbnail.
-- **Generated** for the concept: 15 stills (fal flux-pro ultra), 3 stills (Higgsfield Qwen Image 3) and the looping
-  wave video (Higgsfield Kling image-to-video). None shows a person, a product, text or a real Nova Farms place. Every
-  generated file carries the IPTC `trainedAlgorithmicMedia` label (XMP in images, container tags in video).
+- **Generated** for the concept: 15 stills (fal flux-pro ultra), 3 stills (Higgsfield Qwen Image 3), the looping
+  wave video (Higgsfield Kling image-to-video) and the home hero's two coconut palms (a fal flux-pro ultra silhouette,
+  keyed, cleaned and split by `tools/palms.py`; prompt in `src/content/palm-plan.json`). None shows a person, a
+  product, text or a real Nova Farms place. Every generated file carries the IPTC `trainedAlgorithmicMedia` label (XMP
+  in images, container tags in video).
 - **Footage:** the home hero film is stock beach footage supplied for the pitch (two surfers walking out of the sea at
   sunset). It is encoded in greyscale and coloured on the page by a brand gradient in multiply
   (`tools/make-loop.mjs --gray --footage`). It is camera footage, so it carries no AI label.
