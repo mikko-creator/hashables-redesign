@@ -53,7 +53,7 @@ Every URL the build prints is relative to its page, so `dist/` works from any fo
 | `src/content/` | flavors, site config, FAQ, blog articles, privacy policy, image manifest |
 | `src/styles/site.css`, `src/scripts/site.js` | the design system and interactions |
 | `assets/generated/` | AI image originals with their prompt/seed sidecars |
-| `tools/` | the client's brand-folder derivatives (`brand-assets.py`), image derivatives (`derive.py`), the footer palm cut-out (`cutouts.py`), video loops, generation runners, preview, checks |
+| `tools/` | the client's brand-folder derivatives (`brand-assets.py`), image derivatives (`derive.py`), the footer palm cut-out (`cutouts.py`), mark removal on generated stills (`retouch.py`), video loops, generation runners, preview, checks |
 
 ## Imagery
 
@@ -62,10 +62,12 @@ Every URL the build prints is relative to its page, so `dist/` works from any fo
   HSH26 one-sheet), the studio product photography, and the surfer, palm, Milky Way and full-spectrum backgrounds.
   From hashables.com: the logo, the pink palms, yellow palms and swirl backgrounds, the award badges and the video
   thumbnail. The studio photos show the earlier jar packaging.
-- **Generated** for the concept: only three process stills remain (fresh flower, fresh frozen, pressed rosin; fal
-  flux-pro ultra), because the brand folder has no process photography. Each carries the IPTC
-  `trainedAlgorithmicMedia` label in its XMP. Every other generated still and the wave video were retired in favour of
-  the client's own images.
+- **Generated** for the concept: four stills remain. Three are process stills (fresh flower, fresh frozen, pressed
+  rosin; fal flux-pro ultra), because the brand folder has no process photography. The fourth is the home Gear band's
+  surf-shack rack of plain tees in the brand's sunset colours (Higgsfield Soul, picked from four candidates). The model
+  printed small emblems on the tees and decals on the surfboard, so `tools/retouch.py` covers them with clean cloned
+  fabric and board. Each still carries the IPTC `trainedAlgorithmicMedia` label in its XMP. Every other generated
+  still and the wave video were retired in favour of the client's own images.
 - **Footage:** the home hero film is stock beach footage supplied for the pitch (two surfers walking out of the sea at
   sunset). The supplied file is 1280x720, so it was AI-upscaled to 1920x1080 with Topaz Proteus on fal
   (`tools/fal-upscale.mjs`) and looped by `tools/make-loop.mjs --footage` (1920x1080 desktop, 864x1080 phone crop). It

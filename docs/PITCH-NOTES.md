@@ -32,6 +32,7 @@
 | 14 | The studio product photos show the earlier jar packaging; swap in mylar-bag photography when it is shot | inner heroes, story, blog |
 | 15 | "Twenty 5 mg THC pieces per bag" (home) and "20 pieces per bag" (product pages) come from the HSH26 New Jersey wholesale one-sheet (v1): confirm for Massachusetts | home, product pages |
 | 16 | Logo lockup: the HSH26 one-sheet reads "Live Rosin Gummies" under the wordmark, the site logo (from hashables.com) "Solventless Gummies". The brand guide and the mylar print files were saved without PDF content, so they open only in Illustrator: export a PDF or PNG of the current lockup | header, footer |
+| 17 | The Gear band's tee rack is an AI-generated stand-in (Higgsfield), not Hashables apparel: swap in photography of the real Higher Breed merch | home Gear band |
 
 ## Recommendations
 

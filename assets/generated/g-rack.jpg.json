@@ -1,0 +1,94 @@
+{
+  "tool": "tools/hf-stills.mjs (tools/hf-run.mjs), then tools/retouch.py",
+  "slot": "G-RACK",
+  "file": "assets/generated/g-rack.jpg",
+  "iptcDigitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+  "provenance": "AI-generated (Higgsfield Soul), retouched to remove model-printed marks. Illustrative only: never a photograph of Hashables (hashables.com) or Nova Farms, their staff, customers, products, apparel or brands.",
+  "model": "higgsfield-ai/soul/standard",
+  "prompt": "Corner of a sun-faded retro surf shack at golden hour: a row of plain vintage cotton t-shirts in sunset colours, coral pink, violet, sunny yellow and aqua, hanging on wooden hangers from a rope line, a cream canvas bucket hat on a peg, a single-fin longboard in faded aqua leaning against a whitewashed wooden wall, palm-frond shadows falling across everything, warm low sunlight, no people, 1970s surf film photograph look, soft film grain, natural colour, every garment plain and unprinted, no text, no letters, no logos, no signs",
+  "input": {
+    "resolution": "1080p",
+    "aspect_ratio": "3:2"
+  },
+  "requestId": "1460a2e3-8412-411d-9122-e1928b3a6359",
+  "width": 2016,
+  "height": 1344,
+  "raw": "tmp/hf/G-RACK.img",
+  "rawBytes": 3455311,
+  "rawSha256": "929c923e1cdd282e5f9eaa4fc8b919980848d1fb316b65ebe3fb4102154abb24",
+  "retouch": {
+    "tool": "tools/retouch.py",
+    "why": "house rule: no text, logos or marks. The model printed a circular emblem on each of the five tees and three decals on the surfboard although the prompt asked for plain, unprinted garments",
+    "marks": [
+      {
+        "mark": "coral tee emblem",
+        "clone": [
+          0,
+          49
+        ]
+      },
+      {
+        "mark": "violet tee emblem",
+        "clone": [
+          0,
+          49
+        ]
+      },
+      {
+        "mark": "pink tee emblem",
+        "clone": [
+          0,
+          55
+        ]
+      },
+      {
+        "mark": "yellow tee emblem",
+        "clone": [
+          0,
+          53
+        ]
+      },
+      {
+        "mark": "aqua tee emblem",
+        "clone": [
+          0,
+          61
+        ]
+      },
+      {
+        "mark": "board triangle decal",
+        "clone": [
+          -17,
+          175
+        ]
+      },
+      {
+        "mark": "board black decal",
+        "clone": [
+          -7,
+          70
+        ]
+      },
+      {
+        "mark": "board rail sticker",
+        "clone": [
+          7,
+          -72
+        ]
+      }
+    ]
+  },
+  "sha256": "cf3f9b398566d66db76324d2ccb45d0d5cef07c34143aea3b926b37b87aee85c",
+  "generatedAt": "2026-10-24T20:15:55.805Z",
+  "attempt": 1,
+  "candidates": [
+    "G-RACK",
+    "G-FLATLAY",
+    "G-SHORE",
+    "G-TAILGATE"
+  ],
+  "review": {
+    "verdict": "KEPT",
+    "reason": "apparel in the brand sunset palette, a surf cue, no people; the fewest artifacts of four candidates"
+  }
+}

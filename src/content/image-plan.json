@@ -1,5 +1,5 @@
 {
-  "note": "Hashables redesign pitch - generated industry imagery (fal flux-pro ultra). Illustrative only: no stand-in for a real Hashables or Nova Farms farm, product, person or result. House rules: no people, hands or faces; no text, logos or marks; no candy, gummies, alcohol, party or nightlife cues. Product images on the site are the client's own photos (assets/source). Revision 6: only S-BUD, S-FROZEN and S-ROSIN are still on the site; the other entries are retired and marked optional, so a re-run never pays for them.",
+  "note": "Hashables redesign pitch - generated industry imagery (fal flux-pro ultra). Illustrative only: no stand-in for a real Hashables or Nova Farms farm, product, person or result. House rules: no people, hands or faces; no text, logos or marks; no candy, gummies, alcohol, party or nightlife cues. Product images on the site are the client's own photos (assets/source). Revision 6: only S-BUD, S-FROZEN and S-ROSIN are still on the site; the other entries are retired and marked optional, so a re-run never pays for them. Revision 7: G-RACK (Higgsfield Soul, retouched) for the home Gear band, at the operator's request; it is marked optional and is not a fal job.",
   "defaults": {
     "model": "fal-ai/flux-pro/v1.1-ultra",
     "style": "sun-washed retro summer photograph, 1970s film look, warm highlights, gentle film grain, crisp focus, natural colour, no people, no hands, no faces, no text, no lettering, no labels, no logos, no signage, all surfaces blank and unmarked",
@@ -131,6 +131,20 @@
       "rejectReason": "first render showed two moons in the window (AI artifact), 2026-10-24 review",
       "optional": true,
       "retired": "revision 6 (2026-10-25): replaced by the client's own photography and packaging art"
+    },
+    {
+      "id": "G-RACK",
+      "role": "home Gear band (\"Rep the vibe\", apparel); revision 7",
+      "alt": "Plain vintage tees in coral, violet, pink, yellow and aqua hang in a sunlit surf shack beside a faded aqua surfboard",
+      "prompt": "Corner of a sun-faded retro surf shack at golden hour: a row of plain vintage cotton t-shirts in sunset colours, coral pink, violet, sunny yellow and aqua, hanging on wooden hangers from a rope line, a cream canvas bucket hat on a peg, a single-fin longboard in faded aqua leaning against a whitewashed wooden wall, palm-frond shadows falling across everything, warm low sunlight, no people, 1970s surf film photograph look, soft film grain, natural colour, every garment plain and unprinted, no text, no letters, no logos, no signs",
+      "provider": "Higgsfield",
+      "model": "higgsfield-ai/soul/standard",
+      "input": {
+        "resolution": "1080p",
+        "aspect_ratio": "3:2"
+      },
+      "optional": true,
+      "runner": "tools/hf-stills.mjs --only G-RACK, then python -I tools/retouch.py (not fal-gen)"
     }
   ]
 }

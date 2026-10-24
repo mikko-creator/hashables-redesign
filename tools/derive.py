@@ -18,6 +18,8 @@ SMALL = [1600, 960, 640]
 jobs = {
     's-bud': ('assets/generated/s-bud.jpg', SMALL), 's-frozen': ('assets/generated/s-frozen.jpg', SMALL),
     's-rosin': ('assets/generated/s-rosin.jpg', SMALL),
+    # revision 7: the home Gear band (Higgsfield Soul, marks removed by tools/retouch.py)
+    'g-rack': ('assets/generated/g-rack.jpg', SMALL),
 }
 
 manifest = {}

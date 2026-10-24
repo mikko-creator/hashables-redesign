@@ -83,7 +83,7 @@ ${finderBand()}
 
 <section class="band band--sand gear" aria-labelledby="gear-h">
   <div class="wrap gear__in">
-    <div class="gear__media" data-reveal>${pic('palms-yellow', { alt: 'Hashables yellow palm-tree art', sizes: '(min-width: 900px) 50vw, 92vw' })}<span class="sticker sticker--sun">Stay<br>salty</span></div>
+    <div class="gear__media" data-reveal>${pic('g-rack', { alt: 'Plain vintage tees in coral, violet, pink, yellow and aqua hang in a sunlit surf shack beside a faded aqua surfboard', sizes: '(min-width: 900px) 50vw, 92vw' })}<span class="sticker sticker--sun">Stay<br>salty</span></div>
     <div class="gear__body" data-reveal>
       ${eyebrow('Gear')}
       <h2 id="gear-h" class="h2">Rep the <span class="script script--ink">vibe</span></h2>
