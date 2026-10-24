@@ -18,7 +18,7 @@ This is a **pitch build**, not the live site.
 - **Navigation.** On desktop the wordmark sits centred with the menu split either side: Gummies opens a mega menu
   with every line and flavor, Learn and About open dropdowns, and Find us, Contact and the store-finder button sit in
   the bar. Phones and tablets get a menu button that opens the full-screen menu.
-- **Motion.** A looping surf film in the home hero, coloured by a brand gradient, a looping wave video, scroll
+- **Motion.** A looping surf film in the home hero under a light brand gradient, a looping wave video, scroll
   reveals, floating cube stacks, tilt-and-glare hovers. All of it stops under `prefers-reduced-motion`.
 - **Built for search.** One H1 per page, descriptive titles and meta descriptions, canonical URLs, breadcrumbs,
   JSON-LD (Organization, Product, FAQPage, Article, BreadcrumbList), sitemap.xml and robots.txt for production.
@@ -50,20 +50,21 @@ Every URL the build prints is relative to its page, so `dist/` works from any fo
 | `src/content/` | flavors, site config, FAQ, blog articles, privacy policy, image manifest |
 | `src/styles/site.css`, `src/scripts/site.js` | the design system and interactions |
 | `assets/generated/` | AI image originals with their prompt/seed sidecars |
-| `tools/` | image derivatives (`derive.py`), cut-outs (`cutouts.py`, `palms.py`) and their menu thumbnails (`thumbs.py`), video loops, generation runners, preview, checks |
+| `tools/` | image derivatives (`derive.py`), cut-outs (`cutouts.py`) and their menu thumbnails (`thumbs.py`), video loops, generation runners, preview, checks |
 
 ## Imagery
 
 - **Client art** (from hashables.com): the logo, the nine flavor cube photos (cut out for the floating stacks), the
   pink palms, yellow palms and swirl backgrounds, the award badges and the video thumbnail.
-- **Generated** for the concept: 15 stills (fal flux-pro ultra), 3 stills (Higgsfield Qwen Image 3), the looping
-  wave video (Higgsfield Kling image-to-video) and the home hero's two coconut palms (a fal flux-pro ultra silhouette,
-  keyed, cleaned and split by `tools/palms.py`; prompt in `src/content/palm-plan.json`). None shows a person, a
-  product, text or a real Nova Farms place. Every generated file carries the IPTC `trainedAlgorithmicMedia` label (XMP
-  in images, container tags in video).
+- **Generated** for the concept: 15 stills (fal flux-pro ultra), 3 stills (Higgsfield Qwen Image 3) and the looping
+  wave video (Higgsfield Kling image-to-video). None shows a person, a product, text or a real Nova Farms place. Every
+  generated file carries the IPTC `trainedAlgorithmicMedia` label (XMP in images, container tags in video).
 - **Footage:** the home hero film is stock beach footage supplied for the pitch (two surfers walking out of the sea at
-  sunset). It is encoded in greyscale and coloured on the page by a brand gradient in multiply
-  (`tools/make-loop.mjs --gray --footage`). It is camera footage, so it carries no AI label.
+  sunset). The supplied file is 1280x720, so it was AI-upscaled to 1920x1080 with Topaz Proteus on fal
+  (`tools/fal-upscale.mjs`) and looped by `tools/make-loop.mjs --footage` (1920x1080 desktop, 864x1080 phone crop). It
+  keeps its own colour under the brand gradient in multiply at .45. It is camera footage, not AI-generated: its
+  container tags say AI-upscaled, with the IPTC source type `algorithmicallyEnhanced`. A higher-resolution licensed
+  original of the same clip would beat the upscale.
 
 ## Fonts
 

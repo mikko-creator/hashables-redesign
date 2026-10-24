@@ -247,17 +247,11 @@ html:not(.js) .nav__item:hover > [data-nav-panel], html:not(.js) .nav__item:focu
 .hero__poster, .hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
 .hero__video { opacity: 0; transition: opacity 1.2s; }
 .hero__video.is-playing { opacity: 1; }
-/* the beach film is greyscale (tools/make-loop.mjs --gray); this gradient in multiply gives it the kit's colours: the
-   silhouettes stay dark, the bright sky and sea run violet, pink, a coral horizon, then magenta */
-.hero__tint { position: absolute; inset: 0; z-index: -3; mix-blend-mode: multiply; background: linear-gradient(180deg, #5b33c0 0%, #a845bd 24%, #ff5f9a 40%, #ff9466 50%, #ff6fa8 62%, #e85ec4 82%, #c056d6 100%); }
+/* the beach film keeps its own golden light; the kit's gradient lies over it in multiply at .45, a wash rather than a
+   recolour (at full strength over the colour film the gold water turned the red of the gummy stack) */
+.hero__tint { position: absolute; inset: 0; z-index: -3; mix-blend-mode: multiply; opacity: .45; background: linear-gradient(180deg, #5b33c0 0%, #a845bd 24%, #ff5f9a 40%, #ff9466 50%, #ff6fa8 62%, #e85ec4 82%, #c056d6 100%); }
 .hero__veil { position: absolute; inset: 0; z-index: -2; background: linear-gradient(95deg, rgba(36, 10, 60, .72) 0%, rgba(36, 10, 60, .35) 42%, rgba(36, 10, 60, 0) 70%), linear-gradient(0deg, rgba(26, 11, 46, .55), transparent 40%); }
 .hero .grid-floor { z-index: -1; height: 34%; opacity: .45; }
-/* the coconut palms (tools/palms.py): one per edge, sized off the hero's height (capped by the viewport width, so a
-   tall screen does not get giant trees); the left crown rises over the pane, the right one is half off the edge so it
-   frames the surfers in the film rather than covering them */
-.hero__palm { position: absolute; z-index: 1; bottom: -2%; width: auto; max-width: none; pointer-events: none; opacity: .95; filter: drop-shadow(0 10px 30px rgba(0, 0, 0, .35)); }
-.hero__palm--l { left: -8%; height: min(108%, 70vw); }
-.hero__palm--r { right: -20%; height: min(104%, 66vw); }
 .hero__in { z-index: 4; padding: calc(var(--hdr) + 28px) 0 120px; }
 .hero__pane { max-width: 610px; padding: clamp(24px, 3vw, 40px); background: linear-gradient(140deg, rgba(48, 14, 74, .5), rgba(30, 10, 54, .3)); }
 .hero__h { font-size: clamp(2.6rem, 5.4vw + .4rem, 5.6rem); line-height: .98; margin-bottom: .35em; text-shadow: 0 4px 30px rgba(40, 0, 60, .35); }
@@ -729,6 +723,8 @@ html.js:not(.static) [data-reveal].is-in { opacity: 1; translate: 0 0; }
   .ftr__brand { grid-column: 1 / -1; }
 }
 @media (max-width: 980px) {
+  /* the hero pane spans the screen here, over the film's bright horizon: denser glass keeps its text at AA */
+  .hero__pane { background: linear-gradient(140deg, rgba(48, 14, 74, .66), rgba(30, 10, 54, .54)); }
   .feature__in, .chill__in, .awards__in, .finder-band__in, .gear__in, .faqmini__in, .finder__in, .request__in, .line-sec__head, .lrow, .pdp__grid, .pdp-story__in, .story__in, .video-sec__in, .labsec__in, .contact__in, .art__grid, .help__in { grid-template-columns: 1fr; }
   .lrow--flip .lrow__media { order: 0; }
   .lrow__cubes { right: -2%; }
@@ -753,9 +749,6 @@ html.js:not(.static) [data-reveal].is-in { opacity: 1; translate: 0 0; }
   .hero__pane { padding: 22px; }
   .float--h0 { width: 128px; right: auto; left: 6%; bottom: 4%; }
   .float--h1 { width: 170px; right: 4%; bottom: 3%; }
-  .hero__palm { opacity: .8; }
-  .hero__palm--l { left: -50%; height: 60%; }
-  .hero__palm--r { right: -50%; height: 57%; }
   .trust__list, .steps, .fgrid, .fgrid--2, .fgrid--5, .bgrid, .triad__grid, .look__grid, .lcards, .contact__cards { grid-template-columns: 1fr; }
   .fgrid { gap: 64px; padding-top: 80px; }
   .fcard { aspect-ratio: 4 / 4.2; }
@@ -795,7 +788,6 @@ html.js:not(.static) [data-reveal].is-in { opacity: 1; translate: 0 0; }
 /* depth: sections let their cube stacks cross into the next band; only the backdrop layers are clipped */
 .clip { position: absolute; inset: 0; overflow: hidden; z-index: -1; pointer-events: none; }
 .hero, .phero, .pdp, .feature { overflow: visible; z-index: 2; }
-.hero__palm { z-index: 1; }
 .feature__bg { z-index: -2; }
 .feature__veil { z-index: -1; }
 @media (max-width: 980px) {

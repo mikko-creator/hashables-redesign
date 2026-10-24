@@ -1,24 +1,24 @@
 {
   "tool": "tools/make-loop.mjs",
-  "input": "assets/source/video/455944_Venice_Beach_Los_Angeles_1280x720.mp4",
-  "inputDuration": 19.818,
+  "input": "assets/source/video/venice-topaz-1920.mp4",
+  "inputDuration": 19.8,
   "fps": 25,
   "fade": 2,
-  "loopDuration": 17.818,
+  "loopDuration": 17.8,
   "outputs": {
-    "src/assets/media/hero-venice.mp4": 2180004,
-    "src/assets/media/hero-venice-poster.webp": 37956,
-    "src/assets/media/hero-venice-phone.mp4": 623071
+    "src/assets/media/hero-venice.mp4": 6439861,
+    "src/assets/media/hero-venice-poster.webp": 87478,
+    "src/assets/media/hero-venice-phone.mp4": 2150581
   },
   "calmness": {
     "metric": "ffmpeg signalstats YDIF (mean absolute luma change between consecutive frames, 0-255), measured over two plays of the loop",
     "frames": 889,
-    "max": 3.25504,
-    "p95": 2.51064,
-    "mean": 1.934,
+    "max": 3.02913,
+    "p95": 2.50302,
+    "mean": 1.886,
     "framesOver20": 0,
-    "seamChange": 3.25504
+    "seamChange": 2.76637
   },
-  "footage": "Stock footage supplied for the pitch (file 455944_Venice_Beach_Los_Angeles_1280x720.mp4): two surfers walking out of the sea at sunset, graded to greyscale for the page's colour gradient. Camera footage, not AI-generated. Not footage of Hashables (hashables.com) or Nova Farms, their farms, staff, customers, products or brands.",
-  "generatedAt": "2026-10-24T06:42:53.255Z"
+  "footage": "Stock footage supplied for the pitch (file 455944_Venice_Beach_Los_Angeles_1280x720.mp4): two surfers walking out of the sea at sunset. AI-upscaled from 1280x720 to 1920x1080 with Topaz Proteus (fal-ai/topaz/upscale/video); IPTC digital source type: http://cv.iptc.org/newscodes/digitalsourcetype/algorithmicallyEnhanced. Camera footage, not AI-generated. Not footage of Hashables (hashables.com) or Nova Farms, their farms, staff, customers, products or brands.",
+  "generatedAt": "2026-10-24T15:23:46.556Z"
 }

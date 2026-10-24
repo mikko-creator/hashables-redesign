@@ -57,7 +57,9 @@ const [fn, fd] = String(probe.streams[0].r_frame_rate).split('/').map(Number);
 const fps = fd ? fn / fd : fn;
 if (!(T > 2 * fade + 1)) throw new Error('clip too short for a ' + fade + 's crossfade: ' + T + 's');
 const offset = (T - 2 * fade).toFixed(3);
-const loopGraph = `[0:v]trim=start=${fade}:end=${T},setpts=PTS-STARTPTS,fps=${fps}[a];[0:v]trim=start=0:end=${fade},setpts=PTS-STARTPTS,fps=${fps}[b];[a][b]xfade=transition=fade:duration=${fade}:offset=${offset},scale='min(${width},iw)':-2:flags=lanczos,${args.gray ? 'hue=s=0,' : ''}format=yuv420p[v]`;
+// the loop, then `size` (a scale, or the phone's crop + scale): both cuts are made from the source, never one from the other
+const loopOf = (size) => `[0:v]trim=start=${fade}:end=${T},setpts=PTS-STARTPTS,fps=${fps}[a];[0:v]trim=start=0:end=${fade},setpts=PTS-STARTPTS,fps=${fps}[b];[a][b]xfade=transition=fade:duration=${fade}:offset=${offset},${size},${args.gray ? 'hue=s=0,' : ''}format=yuv420p[v]`;
+const loopGraph = loopOf(`scale='min(${width},iw)':-2:flags=lanczos`);
 
 const mp4 = out + '.mp4', webm = args['no-webm'] ? null : out + '.webm', poster = out + '-poster.webp';
 run(FF, ['-y', '-loglevel', 'error', '-i', inp, '-filter_complex', loopGraph, '-map', '[v]', '-an', '-c:v', 'libx264', '-preset', 'slow', '-crf', crf, '-profile:v', 'high', '-movflags', '+faststart', '-metadata', 'comment=' + aiNote, '-metadata', 'description=' + aiNote, mp4]);
@@ -71,7 +73,8 @@ if (args['phone-width']) {
   // composed off-centre for a wide banner stays in the phone cut
   const fx = Math.min(1, Math.max(0, Number(args['phone-x'] ?? 0.5)));
   phone = out + '-phone.mp4';
-  run(FF, ['-y', '-loglevel', 'error', '-i', mp4, '-vf', `crop='min(iw,ih*${aw}/${ah})':ih:'(iw-ow)*${fx}':0,scale=${pw}:-2:flags=lanczos,format=yuv420p`, '-an', '-c:v', 'libx264', '-preset', 'slow', '-crf', String(Number(crf) + 2), '-movflags', '+faststart', '-metadata', 'comment=' + aiNote, phone]);
+  // cut from the source (2026-10-24): cropping the encoded desktop file stacked a second lossy encode on the phone cut
+  run(FF, ['-y', '-loglevel', 'error', '-i', inp, '-filter_complex', loopOf(`crop='min(iw,ih*${aw}/${ah})':ih:'(iw-ow)*${fx}':0,scale=${pw}:-2:flags=lanczos`), '-map', '[v]', '-an', '-c:v', 'libx264', '-preset', 'slow', '-crf', String(Number(crf) + 2), '-profile:v', 'high', '-movflags', '+faststart', '-metadata', 'comment=' + aiNote, '-metadata', 'description=' + aiNote, phone]);
 }
 
 // calmness: YDIF per frame over the loop played twice (so the seam is measured as an ordinary frame change)
